@@ -1,0 +1,24 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel -p 3000 ./static/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SFKhakimov/chat-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SFKhakimov/chat-app/issues"
+  },
+  "homepage": "https://github.com/SFKhakimov/chat-app#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "parcel-bundler": "^1.12.5"
+  }
+}
