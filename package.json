@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
-    "build": "parcel ./static/*.pug && node server.js"
+    "build": "parcel build ./static/*.pug"
   },
   "repository": {
     "type": "git",
