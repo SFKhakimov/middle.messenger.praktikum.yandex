@@ -1,0 +1,12 @@
+block variable
+    - const signIn = 'Вход'
+    - const buttonText = 'Авторизоваться'
+    - const linkText = 'Нет аккаунта?'
+form.form
+    .form__container
+        h2.form__title=signIn
+        include input
+    .form__container
+        button.form__button=buttonText
+        a(href="#").form__link=linkText
+

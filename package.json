@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel -p 3000 ./static/*.hbs --no-cache"
+    "dev": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
+    "build": "parcel ./static/*.pug"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,7 @@
     "postcss-modules": "^3.2.2"
   },
   "dependencies": {
-    "handlebars": "^4.7.7",
-    "parcel-plugin-handlebars": "^0.4.4",
-    "src": "^1.1.2"
+    "normalize.css": "^8.0.1",
+    "pug": "^3.0.2"
   }
 }

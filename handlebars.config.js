@@ -1,6 +1,6 @@
 module.exports = {
-    // data: 'src',
-    // helpers: 'src',
+    data: 'src/handlebarsData',
+    helpers: 'src/handlebarsHelpers',
     layouts: 'static',
-    partials: 'static',
+    partials: 'static/templates',
 };
