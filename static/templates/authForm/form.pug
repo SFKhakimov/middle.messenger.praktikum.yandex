@@ -1,12 +1,10 @@
 block variable
-    - const signIn = 'Вход'
-    - const buttonText = 'Авторизоваться'
-    - const linkText = 'Нет аккаунта?'
-form.form
+
+form.form(name=formName)
     .form__container
         h2.form__title=signIn
-        include input
+        include field
     .form__container
         button.form__button=buttonText
-        a(href="#").form__link=linkText
+        a(href="/signup.pug").form__link=linkText
 

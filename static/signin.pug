@@ -1,0 +1,12 @@
+extends templates/head/head
+block variables
+    - const pageTitle = "Страница авторизации"
+    - const style = "./styles/auth.css"
+    - const signIn = 'Вход'
+    - const buttonText = 'Авторизоваться'
+    - const linkText = 'Нет аккаунта?'
+    - const formName = 'signin'
+    - const formFields = [{ name: "login", placeholder: "Логин", type: "text"}, { name: "password", placeholder: "Пароль", type: "password"}]
+block content
+    include ./templates/main/main
+        include ./templates/authForm/form

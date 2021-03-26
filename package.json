@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
+    "start": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
     "build": "parcel build ./static/*.pug"
   },
   "repository": {
