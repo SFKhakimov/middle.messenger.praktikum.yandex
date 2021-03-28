@@ -1,0 +1,61 @@
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info__image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #EFEFEF;
+    cursor: pointer;
+}
+
+.profile-info__image:hover {
+    content: 'Поменять';
+    background: #000000;
+    opacity: .5;
+    transition: .3s linear;
+}
+
+.profile-info__name {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.profile-info__fields-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    box-sizing: border-box;
+    width: 510px;
+}
+
+.profile-info__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 8px 0px;
+}
+
+.profile-info__field-name {
+    font-size: .9em;
+    margin: 0;
+}
+
+.profile-info__field-value {
+    margin: 0;
+    color: #999999;
+    font-size: .9em;
+}
+
+.profile-info__edit-button {
+    color: #3369F3;
+}
+
+.profile-info__logout-button {
+    color: #FF0000;
+}
