@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "./common/button.css";
 @import "../fonts/fonts.css";
 @import "../templates/main/style.css";
 @import "../templates/chat/styles/style.css";
