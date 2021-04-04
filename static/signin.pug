@@ -9,8 +9,9 @@ block content
         form.form(name="signin")
             .form__container
                 h2.form__title Вход
-                +inputField("login", "Логин", "text", "Поле некорректно заполнено")
-                +inputField("password", "Пароль", "password", "Поле некорректно заполнено")
+                +inputField("login", "Логин", "login", "text", "Поле некорректно заполнено")
+                +inputField("password", "Пароль", "password", "password", "Поле некорректно заполнено")
             .form__container
                 button.form__button Авторизоваться
                 a(href="/signup.pug").form__link Нет аккаунта?
+    script(src="../src/modules/SignIn/index.js")

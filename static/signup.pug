@@ -9,13 +9,14 @@ block content
         form.form(name="signup")
             .form__container
                 h2.form__title Регистрация
-                +inputField("email", "Почта", "text", "Поле некорректно заполнено")
-                +inputField("login", "Логин", "text", "Поле некорректно заполнено")
-                +inputField("firstName", "Имя", "text", "Поле некорректно заполнено")
-                +inputField("lastName", "Фамилия", "text", "Поле некорректно заполнено")
-                +inputField("phone", "Телефон", "text", "Поле некорректно заполнено")
-                +inputField("password", "Пароль", "password", "Поле некорректно заполнено")
-                +inputField("passwordAgain", "Пароль еще раз", "password", "Поле некорректно заполнено")
+                +inputField("email", "Почта", "email", "text", "Поле некорректно заполнено")
+                +inputField("login", "Логин", "login", "text", "Поле некорректно заполнено")
+                +inputField("firstName", "Имя", "firstName", "text", "Поле некорректно заполнено")
+                +inputField("lastName", "Фамилия", "lastName", "text", "Поле некорректно заполнено")
+                +inputField("phone", "Телефон", "phone", "text", "Поле некорректно заполнено")
+                +inputField("password", "Пароль", "password", "password", "Поле некорректно заполнено")
+                +inputField("passwordAgain", "Пароль еще раз", "passwordAgain", "password", "Поле некорректно заполнено")
             .form__container
                 button.form__button Зарегистрироваться
                 a(href="/signin.pug").form__link Войти
+    script(src="../src/modules/SignUp/index.js")
