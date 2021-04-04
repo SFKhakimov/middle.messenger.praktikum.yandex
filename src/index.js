@@ -1,12 +1,16 @@
 const editUserButton = document.querySelector('.chat-active-user__button')
 const editUserPopper = document.querySelector('.chat-edit-user-popper')
+const chatAddDocumentPopperButton = document.querySelector('.chat-message-form__add-file-button')
+const chatAddDocumentPopper = document.querySelector('.chat-add-document-popper')
 const chatEditUserContainer = document.querySelector('.chat-active-user__edit-container')
+const chatMessageForm = document.querySelector('.chat-message-form')
 const addUserButton = document.querySelector('#add-user-button')
 const deleteUserButton = document.querySelector('#delete-user-button')
 const addUserModal = document.querySelector('.add-user-modal')
 const deleteUserModal = document.querySelector('.delete-user-modal')
 const modal = document.querySelector('.modal')
 
+const classChatAddDocumentPopperActive = 'chat-add-document-popper_active'
 const classEditUserPopperActive = 'chat-edit-user-popper_active'
 const classPopperBackgroundActive = 'popper-background_active'
 const classPopperBackground = 'popper-background'
@@ -21,6 +25,7 @@ editUserButton.addEventListener('click', (e) => {
 })
 
 chatEditUserContainer.addEventListener('click', (e) => {
+    console.log(e.target)
     if (e.target.classList.contains(classPopperBackgroundActive)) {
         e.target.classList.remove(classPopperBackgroundActive)
         editUserPopper.classList.remove(classEditUserPopperActive)
@@ -48,4 +53,18 @@ modal.addEventListener('click', e => {
 deleteUserButton.addEventListener('click', (e) => {
     deleteUserModal.classList.add(classDeleteUserModalActive)
     modal.classList.add(classModalActive)
+})
+
+
+chatAddDocumentPopperButton.addEventListener('click', (e) => {
+    chatAddDocumentPopper.classList.add(classChatAddDocumentPopperActive)
+    chatMessageForm.querySelector(`.${classPopperBackground}`).classList.add(classPopperBackgroundActive)
+})
+
+
+chatMessageForm.addEventListener('click', (e) => {
+    if (e.target.classList.contains(classPopperBackgroundActive)) {
+        e.target.classList.remove(classPopperBackgroundActive)
+        chatAddDocumentPopper.classList.remove(classChatAddDocumentPopperActive)
+    }
 })

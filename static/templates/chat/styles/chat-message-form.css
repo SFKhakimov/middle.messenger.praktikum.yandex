@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.chat-message-form__container {
+    position: relative;
+}
+
 .chat-message-form__field {
     padding: 8px 16px;
     background: #EFEFEF;
