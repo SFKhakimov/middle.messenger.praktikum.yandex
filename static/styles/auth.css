@@ -1,4 +1,5 @@
 @import "normalize.css";
 @import "../fonts/fonts.css";
 @import "../templates/main/style.css";
-@import "../templates/authForm/style.css";
+@import "./common/form.css";
+@import "../templates/inputField/style.css";

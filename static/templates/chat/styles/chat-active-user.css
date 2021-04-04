@@ -21,3 +21,7 @@
     margin: 0;
     padding-left: 8px;
 }
+
+.chat-active-user__edit-container {
+    position: relative;
+}

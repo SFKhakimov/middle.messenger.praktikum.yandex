@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+.chat-list-item:hover {
+    background: #E4EDFD;
+}
+
 .chat-list-item_active {
     background: #E4EDFD;
 }

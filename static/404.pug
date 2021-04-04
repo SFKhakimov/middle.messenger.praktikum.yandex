@@ -1,0 +1,11 @@
+extends templates/head/head
+block variables
+    - const pageTitle = "Ошибка 404"
+    - const style = "./styles/error.css"
+    - const errorTitle = "404"
+    - const errorSubtitle = "Такой страницы нет :("
+    - const errorNavigatePath = "/index.pug"
+    - const errorButtonText = "Назад к чатам"
+block content
+    include ./templates/main/main
+        include ./templates/error/error

@@ -13,10 +13,29 @@
 }
 
 .profile-info__image:hover {
-    content: 'Поменять';
-    background: #000000;
-    opacity: .5;
-    transition: .3s linear;
+    background: rgba(0, 0, 0, .5);
+    transition: background .3s linear;
+}
+
+.profile-info__image-edit {
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-info__image-edit-text {
+    margin: 0;
+    text-align: center;
+    color: #FFF;
+}
+
+.profile-info__image-edit:hover {
+    opacity: 1;
 }
 
 .profile-info__name {

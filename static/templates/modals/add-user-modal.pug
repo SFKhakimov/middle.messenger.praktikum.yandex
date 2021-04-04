@@ -1,0 +1,8 @@
+include ../../templates/inputField/input-field
+.add-user-modal
+    form.form(name="add-user")
+        .form__container
+            h2.form__title Добавление пользователя
+            +inputField("login", "Логин", "text", "Поле некорректно заполнено")
+        .form__container
+            button.form__button Добавить

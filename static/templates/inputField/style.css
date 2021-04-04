@@ -1,0 +1,30 @@
+.input-field {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-field__input {
+    border: none;
+    border-bottom: 1px solid #3369F3;
+    padding-top: 8px;
+    margin-bottom: 4px;
+    outline: none;
+}
+
+.input-field__label {
+    color: #999999;
+    font-size: .9em;
+}
+
+.input-field__error-text {
+    font-size: .8em;
+    color: #FF2F2F;
+    margin: 0;
+    display: none;
+}
+
+.input-field__error-text_active {
+    display: block;
+}
