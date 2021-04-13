@@ -1,6 +1,7 @@
 .edit-profile-modal {
-    display: none;
+  display: none;
 }
+
 .edit-profile-modal_active {
-    display: block;
+  display: block;
 }
