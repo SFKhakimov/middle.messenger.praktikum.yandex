@@ -1,0 +1,17 @@
+extends templates/head/head
+include ./templates/inputField/input-field
+
+block variables
+    - const pageTitle = "Страница авторизации"
+    - const style = "./styles/auth.css"
+block content
+    include ./templates/main/main
+        form.form(name="signin")
+            .form__container
+                h2.form__title Вход
+                +inputField("login", "Логин", "login", "text", "Поле некорректно заполнено")
+                +inputField("password", "Пароль", "password", "password", "Поле некорректно заполнено")
+            .form__container
+                button.form__button Авторизоваться
+                a(href="/signup.pug").form__link Нет аккаунта?
+    script(src="../src/modules/SignIn/index.js")

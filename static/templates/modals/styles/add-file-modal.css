@@ -1,0 +1,52 @@
+.add-file-modal {
+    width: 320px;
+    background: #FFF;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
+    height: 280px;
+    border-radius: 12px;
+}
+
+.add-file-modal_active {
+    display: flex;
+}
+
+.add-file-modal__title {
+    margin: 0;
+    font-size: 1.1em;
+    padding: 40px 0px;
+}
+
+.add-file-modal__field {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+}
+
+.add-file-modal__label {
+    font-size: .9em;
+    color: #3369F3;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.add-file-modal__edit {
+    width: 100%;
+    background: #3369F3;
+    color: #FFF;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.add-file-modal__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

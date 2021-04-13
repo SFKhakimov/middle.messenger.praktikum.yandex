@@ -1,0 +1,8 @@
+extends templates/head/head
+block variables
+    - const pageTitle = "Профиль"
+    - const style = "./styles/profile.css"
+block content
+    include ./templates/main/main
+        include ./templates/profile/profile-container
+    script(src="../src/modules/Profile/index.js")

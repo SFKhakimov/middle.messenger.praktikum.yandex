@@ -1,0 +1,8 @@
+extends templates/head/head
+block variables
+    - const pageTitle = "Приложение чат"
+    - const style = "./styles/main.css"
+block content
+    include ./templates/main/main
+        include ./templates/chat/chat-container
+    script(src="../src/index.js")

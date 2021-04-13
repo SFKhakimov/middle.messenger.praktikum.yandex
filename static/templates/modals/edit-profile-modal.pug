@@ -1,0 +1,13 @@
+include ../../templates/inputField/input-field
+.edit-profile-modal
+    form.form(name="edit-profile")
+        .form__container
+            h2.form__title Изменение данных
+            +inputField("email", "Почта", "text", "Поле некорректно заполнено")
+            +inputField("login", "Логин", "text", "Поле некорректно заполнено")
+            +inputField("firstName", "Имя", "text", "Поле некорректно заполнено")
+            +inputField("lastName", "Фамилия", "text", "Поле некорректно заполнено")
+            +inputField("chatName", "Имя в чате", "text", "Поле некорректно заполнено")
+            +inputField("phone", "Телефон", "phone", "Поле некорректно заполнено")
+        .form__container
+            button.form__button Сохранить

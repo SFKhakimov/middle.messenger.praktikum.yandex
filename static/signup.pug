@@ -1,0 +1,22 @@
+extends templates/head/head
+include ./templates/inputField/input-field
+
+block variables
+    - const pageTitle = "Страница регистрации"
+    - const style = "./styles/auth.css"
+block content
+    include ./templates/main/main
+        form.form(name="signup")
+            .form__container
+                h2.form__title Регистрация
+                +inputField("email", "Почта", "email", "text", "Поле некорректно заполнено")
+                +inputField("login", "Логин", "login", "text", "Поле некорректно заполнено")
+                +inputField("firstName", "Имя", "firstName", "text", "Поле некорректно заполнено")
+                +inputField("lastName", "Фамилия", "lastName", "text", "Поле некорректно заполнено")
+                +inputField("phone", "Телефон", "phone", "text", "Поле некорректно заполнено")
+                +inputField("password", "Пароль", "password", "password", "Поле некорректно заполнено")
+                +inputField("passwordAgain", "Пароль еще раз", "passwordAgain", "password", "Поле некорректно заполнено")
+            .form__container
+                button.form__button Зарегистрироваться
+                a(href="/signin.pug").form__link Войти
+    script(src="../src/modules/SignUp/index.js")

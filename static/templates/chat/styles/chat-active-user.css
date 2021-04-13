@@ -1,0 +1,27 @@
+.chat-active-user {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-bottom: 8px;
+}
+
+.chat-active-user__container {
+    display: flex;
+    align-items: center;
+}
+
+.chat-active-user__image {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #EFEFEF;
+}
+
+.chat-active-user__name {
+    margin: 0;
+    padding-left: 8px;
+}
+
+.chat-active-user__edit-container {
+    position: relative;
+}

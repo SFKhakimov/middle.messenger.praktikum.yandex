@@ -1,0 +1,6 @@
+@import "normalize.css";
+@import "../templates/main/style.css";
+@import "../templates/profile/styles/style.css";
+@import "../templates/modals/styles/style.css";
+@import "./common/form.css";
+@import "../templates/inputField/style.css";

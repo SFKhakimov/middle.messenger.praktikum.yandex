@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add chat-container.css
+
+PATH: 
+  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/sakirhakimov/Desktop/chat-app/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sakirhakimov/Desktop/chat-app/node_modules/.bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npmjs.org/chat-container.css: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "chat-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
+      "build": "parcel build ./static/*.pug"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/SFKhakimov/chat-app.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/SFKhakimov/chat-app/issues"
+    },
+    "homepage": "https://github.com/SFKhakimov/chat-app#readme",
+    "devDependencies": {
+      "autoprefixer": "^ 9.0.0",
+      "express": "^4.17.1",
+      "parcel-bundler": "^1.12.5",
+      "postcss": "^8.0.0",
+      "postcss-modules": "^3.2.2"
+    },
+    "dependencies": {
+      "normalize.css": "^8.0.1",
+      "pug": "^3.0.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

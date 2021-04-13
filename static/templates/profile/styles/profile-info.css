@@ -1,0 +1,80 @@
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info__image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #EFEFEF;
+    cursor: pointer;
+}
+
+.profile-info__image:hover {
+    background: rgba(0, 0, 0, .5);
+    transition: background .3s linear;
+}
+
+.profile-info__image-edit {
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-info__image-edit-text {
+    margin: 0;
+    text-align: center;
+    color: #FFF;
+}
+
+.profile-info__image-edit:hover {
+    opacity: 1;
+}
+
+.profile-info__name {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.profile-info__fields-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    box-sizing: border-box;
+    width: 510px;
+}
+
+.profile-info__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 8px 0px;
+}
+
+.profile-info__field-name {
+    font-size: .9em;
+    margin: 0;
+}
+
+.profile-info__field-value {
+    margin: 0;
+    color: #999999;
+    font-size: .9em;
+}
+
+.profile-info__edit-button {
+    color: #3369F3;
+}
+
+.profile-info__logout-button {
+    color: #FF0000;
+}

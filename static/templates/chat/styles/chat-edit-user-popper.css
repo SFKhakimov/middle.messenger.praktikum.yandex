@@ -1,0 +1,23 @@
+.chat-edit-user-popper {
+    display: none;
+}
+
+.chat-edit-user-popper_active {
+    display: block;
+}
+
+.chat-edit-user-popper__button {
+    width: 210px;
+    display: flex;
+    align-items: center;
+    font-size: .9em;
+    justify-content: space-between;
+    padding: 8px 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: background-color .2s linear;
+}
+
+.chat-edit-user-popper__button:hover {
+    background: #f0f8ff;
+}

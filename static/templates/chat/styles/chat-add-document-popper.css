@@ -1,0 +1,28 @@
+.chat-add-document-popper {
+    display: none;
+}
+
+.chat-add-document-popper_active {
+    display: block;
+}
+
+.chat-add-document-popper__button {
+    width: 210px;
+    display: flex;
+    align-items: center;
+    font-size: .9em;
+    justify-content: flex-start;
+    padding: 8px 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: background-color .2s linear;
+}
+
+.chat-add-document-popper__button:hover {
+    background: #f0f8ff;
+}
+
+.chat-add-document-popper__button-text {
+    margin: 0;
+    padding-left: 16px;
+}

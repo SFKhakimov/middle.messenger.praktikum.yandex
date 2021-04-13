@@ -1,0 +1,12 @@
+.chat-active {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0 auto;
+    padding: 8px 0px;
+    border-bottom: 1px solid #EAEAEA;
+    border-top: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

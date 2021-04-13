@@ -1,0 +1,21 @@
+.profile-info
+    .profile-info__image
+        .profile-info__image-edit
+            p.profile-info__image-edit-text Поменять аватар
+    h4.profile-info__name Иван
+    .profile-info__fields-container
+        for i in [{name: 'Почта', value: 'test@mail.ru'}, {name: 'Логин', value: 'test'}, {name: 'Имя', value: 'Иван'}, {name: 'Фамилия', value: 'Иванов'}, {name: 'Имя в чате', value: 'ivan'}, {name: 'Телефон', value: '+79999999999'}]
+            .profile-info__field
+                p.profile-info__field-name=i.name
+                p.profile-info__field-value=i.value
+    .profile-info__fields-container
+        .profile-info__field
+            button.button.profile-info__edit-button(id="edit-profile-button") Изменить данные
+        .profile-info__field
+            button.button.profile-info__edit-button(id="edit-password-button") Изменить пароль
+        .profile-info__field
+            button.button.profile-info__logout-button Выйти
+    include ../../templates/modals/modal
+        include ../../templates/modals/add-file-modal
+        include ../../templates/modals/edit-profile-modal
+        include ../../templates/modals/edit-password-modal

@@ -1,0 +1,10 @@
+.main {
+    margin: 0 auto;
+    max-width: 1280px;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Roboto, sans-serif;
+}

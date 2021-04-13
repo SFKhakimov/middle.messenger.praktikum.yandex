@@ -1,0 +1,7 @@
+.delete-user-modal {
+    display: none;
+}
+
+.delete-user-modal_active {
+    display: block;
+}

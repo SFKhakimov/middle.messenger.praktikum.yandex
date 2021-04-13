@@ -1,0 +1,33 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
+    "build": "parcel build ./static/*.pug",
+    "serve": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SFKhakimov/chat-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SFKhakimov/chat-app/issues"
+  },
+  "homepage": "https://github.com/SFKhakimov/chat-app#readme",
+  "devDependencies": {
+    "autoprefixer": "^ 9.0.0",
+    "express": "^4.17.1",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.0.0",
+    "postcss-modules": "^3.2.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "pug": "^3.0.2"
+  }
+}
