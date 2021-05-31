@@ -22,9 +22,5 @@
   font-size: 0.8em;
   color: #ff2f2f;
   margin: 0;
-  display: none;
-}
-
-.input-field__error-text_active {
   display: block;
 }

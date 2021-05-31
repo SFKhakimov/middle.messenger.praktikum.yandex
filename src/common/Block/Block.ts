@@ -60,12 +60,7 @@ export default abstract class Block {
         }
     }
 
-    componentDidUpdate(oldProps: Record<string, unknown>, newProps: Record<string, unknown>) {
-        if (oldProps === undefined || newProps === undefined) return false
-        return Object.keys(oldProps).some(key => {
-            return oldProps[key] !== newProps[key]
-        })
-    }
+    componentDidUpdate(oldProps: Record<string, unknown>, newProps: Record<string, unknown>) {}
 
     setProps = (nextProps: Record<string, unknown>) => {
         if (!nextProps) {
@@ -84,11 +79,9 @@ export default abstract class Block {
         if (this._element !== null && !!block) {
             if (block.nodeName) {
                 this._element = block
-            } else {
-                this._element.innerHTML = block
+                this._addEvents()
+                this.eventBus().emit(Block.EVENTS.FLOW_CDM);
             }
-            this._addEvents()
-            this.eventBus().emit(Block.EVENTS.FLOW_CDM);
         }
     }
 

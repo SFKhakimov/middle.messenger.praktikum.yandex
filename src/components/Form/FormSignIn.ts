@@ -1,36 +1,33 @@
-import { render } from "pug";
 import Block from "../../common/Block";
-import FormInput from "../Inputs/FormInput";
+import InputForm from "../Inputs/InputForm";
 import compile from "../../utils/compile";
-import template from './index'
+import { template } from "./template"
 
 export default class FormSignIn extends Block{
-    constructor() {
+    constructor(props) {
         super('div', {
-            login: new FormInput({
+            ...props,
+            login: new InputForm({
                 labelName: 'Логин',
                 inputName: 'login',
                 type: 'text',
-                errorText: 'Это поле обязательно',
-                isValid: true
             }),
-            password: new FormInput({
+            password: new InputForm({
                 labelName: 'Пароль',
                 inputName: 'password',
                 type: 'password',
-                errorText: 'Это поле обязательно',
-                isValid: true
             }),
         });
     }
 
     render() {
-        const { login, password } = this.props
+        const { login, password, formName } = this.props
         const element = compile(template, {
-            formName: 'Вход',
-            login: login,
-            password: password
+            formName,
+            login,
+            password
         })
+
         return element
     }
 }
