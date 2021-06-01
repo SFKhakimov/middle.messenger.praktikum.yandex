@@ -3,7 +3,6 @@ include ./templates/inputField/input-field
 
 block variables
     - const pageTitle = "Страница регистрации"
-    - const style = "./styles/auth.css"
 block content
     include ./templates/main/main
         form.form(name="signup")
@@ -19,4 +18,4 @@ block content
             .form__container
                 button.form__button Зарегистрироваться
                 a(href="/signin.pug").form__link Войти
-    script(src="../src/components/SignUp/index.js")
+    script(src="../src/modules/components/SignUp/index.js")

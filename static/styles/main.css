@@ -1,9 +1,9 @@
-@import "normalize.css";
+/*@import "src/common/styles/normalize.css";*/
 @import "./common/button.css";
 @import "./common/popper.css";
-@import "./common/form.css";
-@import "../fonts/fonts.css";
-@import "../templates/main/style.css";
+@import "../../src/common/styles/form.css";
+@import "../../src/common/styles/fonts.css";
+@import "../../src/common/styles/form.css";
 @import "../templates/chat/styles/style.css";
 @import "../templates/modals/styles/style.css";
-@import "../templates/inputField/style.css";
+@import "../../src/modules/components/Inputs/style.css";

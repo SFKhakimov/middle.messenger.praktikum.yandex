@@ -1,20 +1,23 @@
-import { render } from 'pug'
-import Block from "../../common/Block";
+import Block from "../../../common/components/Block";
 import { FormSignIn } from "../../components/Form";
-import compile from "../../utils/compile";
+import compile from "../../../common/utils/compile";
+
+import { template } from './template'
+
+import './style.css'
 
 export default class SignIn extends Block{
     constructor() {
-        super('div', {
+        super({
             form: new FormSignIn({
                 formName: 'Вход',
             }),
-        });
+        }, 'div', '#app');
     }
 
     render() {
         const { form } = this.props
-        return compile(`div !{form}`, {
+        return compile(template, {
             form
         })
     }

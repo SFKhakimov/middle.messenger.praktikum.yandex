@@ -1,12 +1,12 @@
 import { render } from "pug";
-import Block from "../common/Block";
+import Block from "../components/Block";
 
 const compile = (tmpl: string, props: Record<string, unknown>) => {
     let newProps: Record<string, unknown> = {}
 
     for(let key in props) {
         if (props[key] instanceof Block) {
-            newProps[key] =`<div data-${key}></div>`
+            newProps[key] =`<div data-id-${props[key].getId()}></div>`
         } else {
             newProps[key] = props[key]
         }
@@ -16,9 +16,11 @@ const compile = (tmpl: string, props: Record<string, unknown>) => {
     element.innerHTML = template
 
     for (let key in newProps) {
-        const el = element.querySelector(`[data-${key}]`)
-        if (el) {
-            el.parentNode.replaceChild(props[key].getContent(), el)
+        if (props[key] instanceof Block) {
+            const el = element.querySelector(`[data-id-${props[key].getId()}]`)
+            if (el) {
+                el.appendChild(props[key].getContent())
+            }
         }
     }
 

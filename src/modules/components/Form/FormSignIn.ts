@@ -1,11 +1,13 @@
-import Block from "../../common/Block";
+import Block from "../../../common/components/Block";
 import InputForm from "../Inputs/InputForm";
-import compile from "../../utils/compile";
+import compile from "../../../common/utils/compile";
 import { template } from "./template"
+
+import './style.css'
 
 export default class FormSignIn extends Block{
     constructor(props) {
-        super('div', {
+        super( {
             ...props,
             login: new InputForm({
                 labelName: 'Логин',

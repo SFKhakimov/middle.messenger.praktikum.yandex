@@ -1,3 +1,4 @@
+import { v4 as makeUUID } from 'uuid';
 import EventBus from "../EventBus";
 import isEqual from "../../utils/mydash/isEqual";
 
@@ -13,16 +14,19 @@ export default abstract class Block {
     _meta: Record<string, unknown>
     props: Record<string, unknown>
     eventBus: () => EventBus
+    _id: string
 
-    constructor(tagName = "div", props = {}) {
+    constructor(props = {}, tagName = "div", selector: string | null = null) {
         const eventBus = new EventBus();
 
         this._meta = {
             tagName,
-            props
+            props,
+            selector
         };
+        this._id = makeUUID();
 
-        this.props = this._makePropsProxy(props);
+        this.props = this._makePropsProxy({ ...props, _id: this._id});
 
         this.eventBus = () => eventBus;
 
@@ -40,6 +44,7 @@ export default abstract class Block {
     private _createResources() {
         const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName as string);
+        this._element.setAttribute('data-id', this._id)
     }
 
     init() {
@@ -48,6 +53,7 @@ export default abstract class Block {
     }
 
     private _componentDidMount() {
+        this._addEvents()
         this.componentDidMount(this.props);
     }
 
@@ -76,13 +82,23 @@ export default abstract class Block {
 
     private _render() {
         const block = this.render();
-        if (this._element !== null && !!block) {
-            if (block.nodeName) {
-                this._element = block
-                this._addEvents()
+        const { selector } = this._meta
+
+        if (selector) {
+            const rootNode = document.querySelector(selector as string)
+            if (rootNode) {
+                rootNode.appendChild(block)
                 this.eventBus().emit(Block.EVENTS.FLOW_CDM);
             }
+            return
         }
+
+        if (this._element?.firstChild && block.firstChild) {
+            this._element.replaceChild(block.firstChild, this._element.firstChild)
+        } else {
+            this._element = block
+        }
+        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
     render(): HTMLElement { return }
@@ -135,5 +151,9 @@ export default abstract class Block {
         Object.keys(events).forEach(eventName => {
             this._element?.removeEventListener(eventName, events[eventName]);
         });
+    }
+
+    getId () {
+        return this._id
     }
 }
