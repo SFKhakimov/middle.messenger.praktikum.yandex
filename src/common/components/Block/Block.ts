@@ -59,6 +59,7 @@ export default abstract class Block {
     componentDidMount(props?: Record<string, unknown>) {}
 
     private _componentDidUpdate(oldProps: Record<string, unknown>, newProps: Record<string, unknown>) {
+        //TODO разобраться с ререндером, при изменении нескольких пропсов ререндер происходит несколько раз
         if (!isEqual(oldProps, newProps)) {
             this._removeEvents()
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -93,9 +94,12 @@ export default abstract class Block {
         }
 
         if (this._element?.firstChild && block.firstChild) {
-            this._element.firstChild.replaceWith(block.firstChild)
+            if (this._element.parentNode) {
+                this._element.parentNode.replaceChild(block, this._element)
+                this._element = block
+            }
         } else {
-            this._element = block
+            this._element = block //TODO проверить нужно ли условие
         }
         this._element?.setAttribute('data-id', this._id)
 

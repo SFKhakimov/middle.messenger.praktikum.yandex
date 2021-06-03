@@ -9,8 +9,8 @@ export default class InputForm extends Block{
     constructor(props: Record<string, unknown>) {
         super( {
             ...props,
-            isValid: true,
             errorText: '',
+            isValid: true,
             inputValue: '',
             events: {
                 focusout: (e: FocusEvent) => this.onBlur(e),
@@ -41,7 +41,6 @@ export default class InputForm extends Block{
 
     render() {
         const { labelName, inputName, placeholder, type, errorText, isValid, inputValue } = this.props
-        // console.log(this.props)
         const element =  compile(template, {
             labelName,
             inputName,

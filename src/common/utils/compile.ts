@@ -19,12 +19,14 @@ const compile = (tmpl: string, props: Record<string, unknown>) => {
         if (props[key] instanceof Block) {
             const el = element.querySelector(`[data-id-${props[key].getId()}]`)
             if (el) {
-                el.append(props[key].getContent())
+                // el.append(props[key].getContent())
+                el.parentNode.replaceChild(props[key].getContent(), el)
+
             }
         }
     }
 
-    return element
+    return element.firstChild
 }
 
 
