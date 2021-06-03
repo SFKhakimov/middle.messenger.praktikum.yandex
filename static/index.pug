@@ -3,6 +3,7 @@ block variables
     - const pageTitle = "Приложение чат"
     - const style = "./styles/main.css"
 block content
+    div(id="app")
     include ./templates/main/main
         include ./templates/chat/chat-container
-    script(src="../src/index.js")
+    script(src="../src/modules/pages/Chat/index.ts")

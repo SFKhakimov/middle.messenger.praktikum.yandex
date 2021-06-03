@@ -4,4 +4,4 @@ export const template = `form.form(name="signin")
                 div !{login} !{password}
             .form__container
                 button.form__button Авторизоваться
-                a(href="/signup.pug").form__link Нет аккаунта?`
+                a(href="/signup.html").form__link Нет аккаунта?`

@@ -1,4 +1,7 @@
-import FormSignIn from "./FormSignIn";
+import FormSignIn from "./FormSignIn/FormSignIn";
+import FormSignUp from "./FormSignUp/FormSignUp";
+
 export {
-    FormSignIn
+    FormSignIn,
+    FormSignUp
 }

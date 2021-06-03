@@ -13,13 +13,13 @@ const compile = (tmpl: string, props: Record<string, unknown>) => {
     }
     const template = render(tmpl, newProps)
     const element = document.createElement('div')
-    element.innerHTML = template
+    element.insertAdjacentHTML('beforeend', template)
 
     for (let key in newProps) {
         if (props[key] instanceof Block) {
             const el = element.querySelector(`[data-id-${props[key].getId()}]`)
             if (el) {
-                el.appendChild(props[key].getContent())
+                el.append(props[key].getContent())
             }
         }
     }

@@ -44,7 +44,6 @@ export default abstract class Block {
     private _createResources() {
         const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName as string);
-        this._element.setAttribute('data-id', this._id)
     }
 
     init() {
@@ -87,17 +86,19 @@ export default abstract class Block {
         if (selector) {
             const rootNode = document.querySelector(selector as string)
             if (rootNode) {
-                rootNode.appendChild(block)
+                rootNode.append(block)
                 this.eventBus().emit(Block.EVENTS.FLOW_CDM);
             }
             return
         }
 
         if (this._element?.firstChild && block.firstChild) {
-            this._element.replaceChild(block.firstChild, this._element.firstChild)
+            this._element.firstChild.replaceWith(block.firstChild)
         } else {
             this._element = block
         }
+        this._element?.setAttribute('data-id', this._id)
+
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 

@@ -18,10 +18,13 @@ export default class InputForm extends Block{
         });
     }
 
-    onBlur(e: FocusEvent) {
-        const { name, value } = (<HTMLInputElement>e.target)
+    onValid(name: string, value: string) {
+        return VALIDATOR[`${name}`]?.(value)
+    }
 
-        const { isValid, errorText } = VALIDATOR[`${name}`](value)
+    onUpdate(name: string, value: string) {
+
+        const { isValid = true, errorText = '' } = this.onValid(name, value) || {}
 
         this.setProps({
             ...this.props,
@@ -29,11 +32,16 @@ export default class InputForm extends Block{
             isValid,
             errorText,
         })
+    }
 
+    onBlur(e: FocusEvent) {
+        const { name, value } = (<HTMLInputElement>e.target)
+        this.onUpdate(name, value)
     }
 
     render() {
         const { labelName, inputName, placeholder, type, errorText, isValid, inputValue } = this.props
+        // console.log(this.props)
         const element =  compile(template, {
             labelName,
             inputName,
