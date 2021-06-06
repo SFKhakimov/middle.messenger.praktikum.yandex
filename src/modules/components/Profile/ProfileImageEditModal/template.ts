@@ -1,4 +1,4 @@
-export const template = `form.add-file-modal
+export const template = `form.form.add-file-modal
                             .add-file-modal__container
                                 h6.add-file-modal__title Загрузить файл
                                 div

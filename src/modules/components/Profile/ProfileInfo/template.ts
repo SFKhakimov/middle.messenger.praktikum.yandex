@@ -3,4 +3,6 @@ export const template = `.profile-info
                             h4.profile-info__name !{name} 
                             | !{infoFields}
                             | !{buttons}
-                            | !{editProfileModal}`
+                            | !{editProfileImageModal}
+                            | !{editProfileModal}
+                            | !{editPasswordModal}`

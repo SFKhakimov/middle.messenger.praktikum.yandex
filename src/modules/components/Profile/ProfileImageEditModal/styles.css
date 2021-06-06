@@ -1,8 +1,7 @@
+@import "../../../../common/styles/form.css";
+
 .add-file-modal {
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 280px;
 }
 
 .add-file-modal__title {

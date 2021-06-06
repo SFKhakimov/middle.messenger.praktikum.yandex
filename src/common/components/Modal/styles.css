@@ -12,13 +12,8 @@
 }
 
 .modal__content {
-    width: 320px;
-    background: #fff;
+    min-width: 320px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
-    box-sizing: border-box;
-    min-height: 280px;
-    border-radius: 12px;
 }
