@@ -1,2 +1,3 @@
-import EventBus from './EventBus'
-export default EventBus
+import EventBus from './EventBus';
+
+export default EventBus;

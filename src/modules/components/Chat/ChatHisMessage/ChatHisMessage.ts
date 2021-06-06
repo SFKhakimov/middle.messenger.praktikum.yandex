@@ -1,19 +1,22 @@
 import Block from "../../../../common/components/Block";
-import {ChatSearchBar} from '../index'
 import compile from "../../../../common/utils/compile";
 import {template} from "./template";
+import './styles.css'
 
-export default class ChatList extends Block {
-    constructor() {
+export default class ChatHisMessage extends Block {
+    constructor(props) {
         super({
-            searchBar: new ChatSearchBar()
+            ...props,
         });
+
     }
 
     render() {
-        const { searchBar } = this.props
+        const { text, time} = this.props
         return compile(template, {
-            searchBar
+            text,
+            time
         })
     }
+
 }

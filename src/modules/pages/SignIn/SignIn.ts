@@ -1,25 +1,24 @@
-import Block from "../../../common/components/Block";
-import { FormSignIn } from "../../components/Form";
-import compile from "../../../common/utils/compile";
+import Block from '../../../common/components/Block';
+import { FormSignIn } from '../../components/Form';
+import compile from '../../../common/utils/compile';
 
-import { template } from './template'
+import { template } from './template';
 
-import './style.css'
+import './style.css';
 
-export default class SignIn extends Block{
-    constructor() {
-        super({
-            form: new FormSignIn({
-                formName: 'Вход',
-            }),
-        }, 'div', '#app');
-    }
+export default class SignIn extends Block {
+  constructor() {
+    super({
+      form: new FormSignIn({
+        formName: 'Вход',
+      }),
+    }, 'div', '#app');
+  }
 
-    render() {
-        const { form } = this.props
-        return compile(template, {
-            form
-        })
-    }
-
+  render() {
+    const { form } = this.props;
+    return compile(template, {
+      form,
+    });
+  }
 }

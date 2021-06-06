@@ -1,3 +1,3 @@
-import SignUp from './SignUp'
+import SignUp from './SignUp';
 
-const signUp = new SignUp()
+const signUp = new SignUp();

@@ -4,4 +4,4 @@ export const template = `form.form(name="signup")
                 div !{email} !{login} !{firstName} !{lastName} !{phone} !{password} !{passwordAgain}
             .form__container
                 button.form__button Зарегистрироваться
-                a(href="/signin.html").form__link Войти`
+                a(href="/signin.html").form__link Войти`;

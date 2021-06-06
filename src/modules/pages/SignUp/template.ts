@@ -1,1 +1,1 @@
-export const template =  `main.main !{form}`
+export const template = 'main.main !{form}';
