@@ -139,8 +139,8 @@ export default abstract class Block {
     return document.createElement(tagName);
   }
 
-  show() {
-    this.getContent().style.display = 'block';
+  show(style = 'block') {
+    this.getContent().style.display = style;
   }
 
   hide() {

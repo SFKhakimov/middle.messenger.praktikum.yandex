@@ -1,0 +1,5 @@
+@import "../../../../common/styles/button.css";
+
+.profile-info__edit-button {
+    color: #3369f3;
+}

@@ -1,0 +1,8 @@
+.profile-info__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    padding: 8px 0;
+}

@@ -1,0 +1,5 @@
+@import "../../../../common/styles/button.css";
+
+.profile-info__logout-button {
+    color: #f00;
+}
