@@ -1,4 +1,4 @@
-@import "../../../../../common/styles/button.css";
+@import "../../../../common/styles/button.css";
 
 .chat-active-user {
     display: flex;

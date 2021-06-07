@@ -6,4 +6,4 @@
 @import "../../src/common/styles/form.css";
 @import "../templates/chat/styles/style.css";
 @import "../templates/modals/styles/style.css";
-@import "../../src/modules/components/Inputs/style.css";
+@import "../../src/modules/components/Input/style.css";

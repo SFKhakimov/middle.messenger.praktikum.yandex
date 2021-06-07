@@ -1,5 +1,5 @@
 import Block from '../../../../common/components/Block';
-import InputForm from '../../Inputs/InputForm';
+import Input from '../../Input';
 import compile from '../../../../common/utils/compile';
 import { template } from './template';
 
@@ -9,12 +9,12 @@ export default class FormSignIn extends Block {
   constructor(props) {
     super({
       ...props,
-      login: new InputForm({
+      login: new Input({
         labelName: 'Логин',
         inputName: 'login',
         type: 'text',
       }),
-      password: new InputForm({
+      password: new Input({
         labelName: 'Пароль',
         inputName: 'password',
         type: 'password',

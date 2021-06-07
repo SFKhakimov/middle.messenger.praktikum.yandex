@@ -8,7 +8,7 @@ import ProfileImage from "../ProfileImage";
 import Modal from "../../../../common/components/Modal";
 import ProfileImageEditModal from "../ProfileImageEditModal";
 import ProfileInfoEditModal from "../ProfileInfoEditModal";
-import InputForm from "../../Inputs/InputForm";
+import Input from "../../Input";
 
 import compile from "../../../../common/utils/compile";
 
@@ -84,32 +84,32 @@ export default class ProfileInfo extends Block {
                 content: new ProfileInfoEditModal({
                     title: 'Изменение данных',
                     inputs: [
-                        new InputForm({
+                        new Input({
                             inputName: 'email',
                             labelName: 'Почтв',
                             type: 'text'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'login',
                             labelName: 'Логин',
                             type: 'text'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'firstName',
                             labelName: 'Имя',
                             type: 'text'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'lastName',
                             labelName: 'Фамилия',
                             type: 'text'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'login',
                             labelName: 'Имя в чате',
                             type: 'text'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'phone',
                             labelName: 'Телефон',
                             type: 'text'
@@ -121,17 +121,17 @@ export default class ProfileInfo extends Block {
                 content: new ProfileInfoEditModal({
                     title: 'Изменение пароля',
                     inputs: [
-                        new InputForm({
+                        new Input({
                             inputName: 'oldPassword',
                             labelName: 'Старый пароль',
                             type: 'password'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'newPassword',
                             labelName: 'Новый пароль',
                             type: 'password'
                         }),
-                        new InputForm({
+                        new Input({
                             inputName: 'newPasswordAgain',
                             labelName: 'Пароль еще раз',
                             type: 'password'

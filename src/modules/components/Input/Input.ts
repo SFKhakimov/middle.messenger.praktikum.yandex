@@ -5,7 +5,7 @@ import { template } from './template';
 
 import './style.css';
 
-export default class InputForm extends Block {
+export default class Input extends Block {
   constructor(props: Record<string, unknown>) {
     super({
       ...props,

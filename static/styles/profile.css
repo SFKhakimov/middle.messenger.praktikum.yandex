@@ -3,4 +3,4 @@
 @import "../templates/profile/styles/style.css";
 @import "../templates/modals/styles/style.css";
 @import "../../src/common/styles/form.css";
-@import "../../src/modules/components/Inputs/style.css";
+@import "../../src/modules/components/Input/style.css";

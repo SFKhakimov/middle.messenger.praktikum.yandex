@@ -1,5 +1,5 @@
 import Block from '../../../../common/components/Block';
-import InputForm from '../../Inputs/InputForm';
+import Input from '../../Input';
 import compile from '../../../../common/utils/compile';
 import { template } from './template';
 
@@ -9,37 +9,37 @@ export default class FormSignUp extends Block {
   constructor(props) {
     super({
       ...props,
-      email: new InputForm({
+      email: new Input({
         labelName: 'E-mail',
         inputName: 'email',
         type: 'text',
       }),
-      login: new InputForm({
+      login: new Input({
         labelName: 'Логин',
         inputName: 'login',
         type: 'text',
       }),
-      firstName: new InputForm({
+      firstName: new Input({
         labelName: 'Имя',
         inputName: 'firstName',
         type: 'text',
       }),
-      lastName: new InputForm({
+      lastName: new Input({
         labelName: 'Фамилия',
         inputName: 'lastName',
         type: 'text',
       }),
-      phone: new InputForm({
+      phone: new Input({
         labelName: 'Телефон',
         inputName: 'phone',
         type: 'text',
       }),
-      password: new InputForm({
+      password: new Input({
         labelName: 'Пароль',
         inputName: 'password',
         type: 'password',
       }),
-      passwordAgain: new InputForm({
+      passwordAgain: new Input({
         labelName: 'Пароль еще раз',
         inputName: 'passwordAgain',
         type: 'password',
