@@ -61,21 +61,6 @@ export default class FormSignUp extends Block {
     });
   }
 
-  onValid(form: FormData) {
-    let isValidForm = true;
-    const { form: formSignIn } = this.props
-
-    formSignIn.props.content.forEach(item => {
-
-      item.onUpdate(item.props.inputName, form[item.props.inputName]);
-      if (!item.props.isValid) {
-        isValidForm = false;
-      }
-
-    })
-    return isValidForm;
-  }
-
   onSubmit(e: HTMLFormElement) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -90,7 +75,7 @@ export default class FormSignUp extends Block {
       passwordAgain: formData.get('passwordAgain'),
     };
 
-    if (!this.onValid(form)) return;
+    if (!this.props.form.onValid(form)) return;
     console.log(form);
   }
 
