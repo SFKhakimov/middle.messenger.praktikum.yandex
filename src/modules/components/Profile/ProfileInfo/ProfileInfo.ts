@@ -8,12 +8,12 @@ import ProfileImage from "../ProfileImage";
 import Modal from "../../../../common/components/Modal";
 import ProfileImageEditModal from "../ProfileImageEditModal";
 import ProfileInfoEditModal from "../ProfileInfoEditModal";
+import InputForm from "../../Inputs/InputForm";
 
 import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";
 import './styles.css'
-import InputForm from "../../Inputs/InputForm";
 
 export default class ProfileInfo extends Block {
     constructor() {
