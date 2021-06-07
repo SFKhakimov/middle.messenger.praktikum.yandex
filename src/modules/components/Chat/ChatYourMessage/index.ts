@@ -1,3 +1,1 @@
-import ChatYourMessage from "./ChatYourMessage";
-
-export default ChatYourMessage
+export { default as ChatYourMessage } from './ChatYourMessage'

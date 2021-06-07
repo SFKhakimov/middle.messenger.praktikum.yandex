@@ -1,3 +1,1 @@
-import ProfileInfoLogoutButton from './ProfileInfoLogoutButton'
-
-export default ProfileInfoLogoutButton
+export { default as ProfileInfoLogoutButton } from './ProfileInfoLogoutButton'

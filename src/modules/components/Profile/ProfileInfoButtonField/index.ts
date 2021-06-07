@@ -1,3 +1,1 @@
-import ProfileInfoButtonField from './ProfileInfoButtonField'
-
-export default ProfileInfoButtonField
+export { default as ProfileInfoButtonField } from './ProfileInfoButtonField'

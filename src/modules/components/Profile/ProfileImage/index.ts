@@ -1,3 +1,1 @@
-import ProfileImage from './ProfileImage'
-
-export default ProfileImage
+export { default as ProfileImage } from './ProfileImage'

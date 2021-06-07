@@ -1,11 +1,11 @@
 import Block from '../../../../common/components/Block';
+import { ChatHeaderContainer } from "../ChatHeader";
+import { ChatMessageForm } from "../ChatMessageForm";
+import { ChatActive } from "../ChatActive";
+
 import compile from "../../../../common/utils/compile";
 import {template} from "./template";
-import {ChatHeaderContainer} from "../index";
-
 import './styles.css'
-import ChatActive from "../ChatActive/ChatActive";
-import ChatMessageForm from "../ChatMessageForm";
 
 export default class Chat extends Block {
   constructor(props) {

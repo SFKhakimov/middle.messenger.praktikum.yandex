@@ -1,10 +1,5 @@
 import Block from '../../../../common/components/Block';
 import MenuButton from "../../../../common/components/Buttons/MenuButton";
-import compile from '../../../../common/utils/compile';
-
-import { template } from './template';
-import './styles.css';
-
 import Popper from "../../../../common/components/Popper";
 import PopperButton from "../../../../common/components/Popper/PopperButton";
 import AddUserIcon from "../../../../common/components/Icons/AddUserIcon";
@@ -12,6 +7,12 @@ import DeleteUserIcon from "../../../../common/components/Icons/DeleteUserIcon";
 import Modal from "../../../../common/components/Modal";
 import Form from "../../../../common/components/Form/Form";
 import Input from "../../Input";
+
+
+import compile from '../../../../common/utils/compile';
+
+import { template } from './template';
+import './styles.css';
 
 
 export default class ChatHeaderContainer extends Block {

@@ -1,5 +1,6 @@
 import Block from '../../../../../common/components/Block';
-import { ChatSearchBar, ChatListItem } from '../../index';
+import {ChatSearchBar} from "../../ChatSearchBar";
+import {ChatListItem} from "../ChatListItem";
 
 import compile from '../../../../../common/utils/compile';
 import { template } from './template';

@@ -1,3 +1,1 @@
-import ProfileImageEditModal from './ProfileImageEditModal'
-
-export default ProfileImageEditModal
+export { default as ProfileImageEditModal } from './ProfileImageEditModal'

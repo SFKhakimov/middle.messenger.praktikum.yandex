@@ -1,3 +1,3 @@
-import Chat from './Chat';
+import ChatPage from './Chat';
 
-const chat = new Chat();
+const chat = new ChatPage();

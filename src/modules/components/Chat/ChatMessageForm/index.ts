@@ -1,3 +1,1 @@
-import ChatMessageForm from "./ChatMessageForm";
-
-export default ChatMessageForm
+export { default as ChatMessageForm } from './ChatMessageForm'

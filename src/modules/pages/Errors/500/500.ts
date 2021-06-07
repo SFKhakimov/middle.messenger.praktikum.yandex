@@ -1,5 +1,5 @@
 import Block from "../../../../common/components/Block";
-import Error from "../../../components/Error"
+import {Error} from "../../../components/Error"
 import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";

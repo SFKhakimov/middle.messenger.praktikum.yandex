@@ -1,5 +1,5 @@
 import Block from "../../../../common/components/Block";
-import ProfileInfo from "../ProfileInfo";
+import {ProfileInfo} from "../ProfileInfo";
 import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";

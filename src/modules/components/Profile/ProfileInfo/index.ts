@@ -1,3 +1,1 @@
-import ProfileInfo from './ProfileInfo'
-
-export default ProfileInfo
+export { default as ProfileInfo} from './ProfileInfo'

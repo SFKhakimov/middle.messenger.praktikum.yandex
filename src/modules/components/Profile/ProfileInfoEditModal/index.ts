@@ -1,3 +1,1 @@
-import ProfileInfoEditModal from './ProfileInfoEditModal'
-
-export default ProfileInfoEditModal
+export { default as ProfileInfoEditModal} from './ProfileInfoEditModal'

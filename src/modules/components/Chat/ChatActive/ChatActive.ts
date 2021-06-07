@@ -1,6 +1,6 @@
 import Block from "../../../../common/components/Block";
-import ChatYourMessage from "../ChatYourMessage";
-import ChatHisMessage from "../ChatHisMessage";
+import {ChatHisMessage} from "../ChatHisMessage";
+import {ChatYourMessage} from "../ChatYourMessage";
 import compile from "../../../../common/utils/compile";
 
 import { template } from './template'

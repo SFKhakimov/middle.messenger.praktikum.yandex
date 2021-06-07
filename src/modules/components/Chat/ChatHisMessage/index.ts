@@ -1,3 +1,1 @@
-import ChatHisMessage from './ChatHisMessage'
-
-export default ChatHisMessage
+export { default as ChatHisMessage } from './ChatHisMessage'

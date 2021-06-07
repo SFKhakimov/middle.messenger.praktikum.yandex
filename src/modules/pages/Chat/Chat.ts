@@ -1,14 +1,14 @@
 import Block from '../../../common/components/Block';
+import {ChatContainer} from "../../components/Chat/ChatContainer";
 import compile from '../../../common/utils/compile';
-import { ChatContainer } from '../../components/Chat';
 
 import { template } from './template';
 import './style.css';
 
-export default class Chat extends Block {
+export default class ChatPage extends Block {
   constructor() {
     super({
-      chatContainer: new ChatContainer(),
+      chatContainer: new ChatContainer({}),
     }, 'div', '#app');
   }
 

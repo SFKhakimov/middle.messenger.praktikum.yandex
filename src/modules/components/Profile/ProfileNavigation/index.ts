@@ -1,3 +1,1 @@
-import ProfileNavigation from "./ProfileNavigation";
-
-export default ProfileNavigation
+export { default as ProfileNavigation } from './ProfileNavigation'

@@ -1,3 +1,1 @@
-import ProfileInfoField from './ProfileInfoField'
-
-export default ProfileInfoField
+export { default as ProfileInfoField } from './ProfileInfoField'

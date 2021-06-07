@@ -1,16 +1,16 @@
 import Block from '../../../../common/components/Block';
-import { ChatList, Chat } from '../index';
+import { Chat} from "../Chat";
+import { ChatList } from "../ChatListContainer/ChatList/inxex";
 import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
-
 import './style.css';
 
 export default class ChatContainer extends Block {
   constructor() {
     super({
       chatList: new ChatList(),
-      chatActive: new Chat()
+      chatActive: new Chat({})
     });
   }
 

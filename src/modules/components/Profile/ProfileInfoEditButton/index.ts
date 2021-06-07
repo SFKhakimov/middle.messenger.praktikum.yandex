@@ -1,3 +1,1 @@
-import ProfileInfoEditButton from './ProfileInfoEditButton'
-
-export default ProfileInfoEditButton
+export { default as ProfileInfoEditButton } from './ProfileInfoEditButton'

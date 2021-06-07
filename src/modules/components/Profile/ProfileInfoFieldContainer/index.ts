@@ -1,3 +1,1 @@
-import ProfileInfoFieldContainer from './ProfileInfoFieldContainer'
-
-export default ProfileInfoFieldContainer
+export { default as ProfileInfoFieldContainer} from './ProfileInfoFieldContainer'
