@@ -11,9 +11,9 @@ export default class Form extends Block {
     }
 
     render() {
-        const { formName, title, content, buttonText = 'Сохранить', isRenderLink = false, linkTitle } = this.props
+        const { formName, title, content, buttonText = 'Сохранить', isRenderLink = false, linkTitle, href } = this.props
         return compile(template, {
-            formName, title, content, buttonText, isRenderLink, linkTitle
+            formName, title, content, buttonText, isRenderLink, linkTitle, href
         })
     }
 

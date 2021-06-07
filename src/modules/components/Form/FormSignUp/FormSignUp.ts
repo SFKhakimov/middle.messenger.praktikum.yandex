@@ -1,5 +1,6 @@
 import Block from '../../../../common/components/Block';
 import Input from '../../Input';
+import {Form} from "../../../../common/components/Form";
 import compile from '../../../../common/utils/compile';
 import { template } from './template';
 
@@ -9,40 +10,50 @@ export default class FormSignUp extends Block {
   constructor(props) {
     super({
       ...props,
-      email: new Input({
-        labelName: 'E-mail',
-        inputName: 'email',
-        type: 'text',
-      }),
-      login: new Input({
-        labelName: 'Логин',
-        inputName: 'login',
-        type: 'text',
-      }),
-      firstName: new Input({
-        labelName: 'Имя',
-        inputName: 'firstName',
-        type: 'text',
-      }),
-      lastName: new Input({
-        labelName: 'Фамилия',
-        inputName: 'lastName',
-        type: 'text',
-      }),
-      phone: new Input({
-        labelName: 'Телефон',
-        inputName: 'phone',
-        type: 'text',
-      }),
-      password: new Input({
-        labelName: 'Пароль',
-        inputName: 'password',
-        type: 'password',
-      }),
-      passwordAgain: new Input({
-        labelName: 'Пароль еще раз',
-        inputName: 'passwordAgain',
-        type: 'password',
+      form: new Form({
+        formName: 'signup',
+        title: 'Регистрация',
+        buttonText: 'Зарегистрироваться',
+        isRenderLink: true,
+        href: '/signin.html',
+        linkTitle: 'Уже зарегистрированы?',
+        content: [
+          new Input({
+            labelName: 'E-mail',
+            inputName: 'email',
+            type: 'text',
+          }),
+          new Input({
+            labelName: 'Логин',
+            inputName: 'login',
+            type: 'text',
+          }),
+          new Input({
+            labelName: 'Имя',
+            inputName: 'firstName',
+            type: 'text',
+          }),
+          new Input({
+            labelName: 'Фамилия',
+            inputName: 'lastName',
+            type: 'text',
+          }),
+          new Input({
+            labelName: 'Телефон',
+            inputName: 'phone',
+            type: 'text',
+          }),
+          new Input({
+            labelName: 'Пароль',
+            inputName: 'password',
+            type: 'password',
+          }),
+          new Input({
+            labelName: 'Пароль еще раз',
+            inputName: 'passwordAgain',
+            type: 'password',
+          }),
+        ]
       }),
       events: {
         submit: (e: HTMLFormElement) => this.onSubmit(e),
@@ -52,12 +63,16 @@ export default class FormSignUp extends Block {
 
   onValid(form: FormData) {
     let isValidForm = true;
-    Object.keys(form).forEach((key) => {
-      this.props[key].onUpdate(key, form[key]);
-      if (!this.props[key].props.isValid) {
+    const { form: formSignIn } = this.props
+
+    formSignIn.props.content.forEach(item => {
+
+      item.onUpdate(item.props.inputName, form[item.props.inputName]);
+      if (!item.props.isValid) {
         isValidForm = false;
       }
-    });
+
+    })
     return isValidForm;
   }
 
@@ -81,17 +96,10 @@ export default class FormSignUp extends Block {
 
   render() {
     const {
-      login, password, formName, email, phone, firstName, lastName, passwordAgain,
+      form
     } = this.props;
     const element = compile(template, {
-      formName,
-      email,
-      login,
-      firstName,
-      lastName,
-      phone,
-      password,
-      passwordAgain,
+      form
     });
 
     return element;
