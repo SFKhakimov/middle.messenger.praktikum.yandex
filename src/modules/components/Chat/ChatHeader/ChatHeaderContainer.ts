@@ -6,7 +6,7 @@ import AddUserIcon from "../../../../common/components/Icons/AddUserIcon";
 import DeleteUserIcon from "../../../../common/components/Icons/DeleteUserIcon";
 import Modal from "../../../../common/components/Modal";
 import Form from "../../../../common/components/Form/Form";
-import Input from "../../Input";
+import Input from "../../../../common/components/Input";
 
 
 import compile from '../../../../common/utils/compile';

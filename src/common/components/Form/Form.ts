@@ -3,17 +3,19 @@ import compile from "../../utils/compile";
 
 import {template} from "./template";
 import './styles.css'
+import {Props} from "./types";
 
 export default class Form extends Block {
-    constructor(props) {
+    props: Props
+    constructor(props: Props) {
         super(props);
 
     }
 
-    onValid(formData: FormData) {
+    onValid(formData: Record<string, FormDataEntryValue | null>) {
         let isValidForm = true;
 
-        this.props.content.forEach(item => {
+        this.props.content.forEach((item) => {
 
             item.onUpdate(item.props.inputName, formData[item.props.inputName]);
             if (!item.props.isValid) {

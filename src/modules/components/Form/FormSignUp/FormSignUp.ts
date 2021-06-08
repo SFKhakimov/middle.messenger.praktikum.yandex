@@ -1,5 +1,5 @@
 import Block from '../../../../common/components/Block';
-import Input from '../../Input';
+import Input from '../../../../common/components/Input';
 import {Form} from "../../../../common/components/Form";
 import compile from '../../../../common/utils/compile';
 import { template } from './template';

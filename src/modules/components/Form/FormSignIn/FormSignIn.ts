@@ -1,13 +1,16 @@
 import Block from '../../../../common/components/Block';
 import {Form} from "../../../../common/components/Form";
-import Input from '../../Input';
+import Input from '../../../../common/components/Input';
 import compile from '../../../../common/utils/compile';
-import { template } from './template';
 
+import { Props } from './types'
+import { template } from './template';
 import './style.css';
 
 export default class FormSignIn extends Block {
-  constructor(props) {
+  props: Props
+
+  constructor(props: Props) {
     super({
       ...props,
       form: new Form({
@@ -31,14 +34,14 @@ export default class FormSignIn extends Block {
         ]
       }),
       events: {
-        submit: (e: HTMLFormElement) => this.onSubmit(e),
+        submit: (e: Event) => this.onSubmit(e),
       },
     });
   }
 
-  onSubmit(e: HTMLFormElement) {
+  onSubmit(e: Event) {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData =  new FormData(e.target as HTMLFormElement);
 
     const form = {
       login: formData.get('login'),

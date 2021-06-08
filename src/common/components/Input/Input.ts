@@ -1,12 +1,15 @@
-import Block from '../../../common/components/Block';
-import compile from '../../../common/utils/compile';
-import { VALIDATOR } from '../../../common/constants/validator';
+import Block from '../Block';
+import compile from '../../utils/compile';
+import { VALIDATOR } from '../../constants/validator';
 import { template } from './template';
 
 import './style.css';
+import {Props} from "./types";
 
 export default class Input extends Block {
-  constructor(props: Record<string, unknown>) {
+  props: Props
+
+  constructor(props: Props) {
     super({
       ...props,
       errorText: '',
@@ -18,11 +21,12 @@ export default class Input extends Block {
     });
   }
 
-  onValid(name: string, value: string) {
+  onValid(name: string, value: FormDataEntryValue | null) {
+    if (typeof value !== 'string') return
     return VALIDATOR[`${name}`]?.(value);
   }
 
-  onUpdate(name: string, value: string) {
+  onUpdate(name: string, value: FormDataEntryValue | null) {
     const { isValid = true, errorText = '' } = this.onValid(name, value) || {};
 
     this.setProps({

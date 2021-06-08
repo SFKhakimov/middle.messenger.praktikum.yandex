@@ -12,15 +12,15 @@ export default abstract class Block {
 
   private _element: HTMLElement | null;
 
-  _meta: Record<string, unknown>;
+  private _meta: Record<string, unknown>;
 
   props: Record<string, unknown>;
 
   eventBus: () => EventBus;
 
-  _id: string;
+  private _id: string;
 
-  constructor(props = {}, tagName = 'div', selector: string | null = null) {
+  constructor(props: Record<string, unknown> = {}, tagName = 'div', selector: string | null = null) {
     const eventBus = new EventBus();
 
     this._meta = {
@@ -135,7 +135,7 @@ export default abstract class Block {
     });
   }
 
-  _createDocumentElement(tagName: string) {
+  private _createDocumentElement(tagName: string) {
     return document.createElement(tagName);
   }
 

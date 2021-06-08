@@ -1,7 +1,7 @@
 import { render } from 'pug';
 import Block from '../components/Block';
 
-const compile = (tmpl: string, props: Record<string, unknown>) => {
+const compile = (tmpl: string, props: Record<string, unknown>): HTMLElement => {
   const newProps: Record<string, unknown> = {};
 
   for (const key in props) {
@@ -22,20 +22,20 @@ const compile = (tmpl: string, props: Record<string, unknown>) => {
   for (const key in newProps) {
     if (props[key] instanceof Block) {
       const el = element.querySelector(`[data-id-${props[key].getId()}]`);
-      if (el) {
+      if (el?.parentNode) {
         el.parentNode.replaceChild(props[key].getContent(), el);
       }
     } else if (Array.isArray(props[key])) {
       Object.values(props[key]).forEach((item, index) => {
         const el = element.querySelector(`[data-id-${props[key][index].getId()}]`);
-        if (el) {
+        if (el?.parentNode) {
           el.parentNode.replaceChild(props[key][index].getContent(), el);
         }
       });
     }
   }
 
-  return element.firstChild;
+  return element.firstChild as HTMLElement;
 };
 
 export default compile;

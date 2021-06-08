@@ -8,7 +8,7 @@ import {ProfileImage} from "../ProfileImage";
 import Modal from "../../../../common/components/Modal";
 import {ProfileImageEditModal} from "../ProfileImageEditModal";
 import {ProfileInfoEditModal} from "../ProfileInfoEditModal";
-import Input from "../../Input";
+import Input from "../../../../common/components/Input";
 
 import compile from "../../../../common/utils/compile";
 
