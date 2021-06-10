@@ -14,8 +14,9 @@ import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";
 import './styles.css'
+import {Props} from "./types";
 
-export default class ProfileInfo extends Block {
+export default class ProfileInfo extends Block<Props> {
     constructor() {
         super({
             name: 'Иван',
@@ -78,7 +79,7 @@ export default class ProfileInfo extends Block {
                 ]
             }),
             editProfileImageModal: new Modal({
-                content: new ProfileImageEditModal({})
+                content: new ProfileImageEditModal()
             }),
             editProfileModal: new Modal({
                 content: new ProfileInfoEditModal({

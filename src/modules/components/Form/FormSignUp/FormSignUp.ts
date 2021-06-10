@@ -3,13 +3,13 @@ import Input from '../../../../common/components/Input';
 import {Form} from "../../../../common/components/Form";
 import compile from '../../../../common/utils/compile';
 import { template } from './template';
+import {Props} from "./types";
 
-import './style.css';
 
-export default class FormSignUp extends Block {
-  constructor(props) {
+export default class FormSignUp extends Block<Props> {
+  constructor() {
     super({
-      ...props,
+      formName: 'Регистрация',
       form: new Form({
         formName: 'signup',
         title: 'Регистрация',
@@ -56,14 +56,14 @@ export default class FormSignUp extends Block {
         ]
       }),
       events: {
-        submit: (e: HTMLFormElement) => this.onSubmit(e),
+        submit: (e: Event) => this.onSubmit(e),
       },
     });
   }
 
-  onSubmit(e: HTMLFormElement) {
+  onSubmit(e: Event) {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.target as HTMLFormElement);
 
     const form = {
       email: formData.get('email'),
@@ -83,10 +83,9 @@ export default class FormSignUp extends Block {
     const {
       form
     } = this.props;
-    const element = compile(template, {
+
+    return compile(template, {
       form
     });
-
-    return element;
   }
 }

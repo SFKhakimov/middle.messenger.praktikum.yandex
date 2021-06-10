@@ -1,5 +1,5 @@
 export default class EventBus {
-  listeners: Record<string, (() => void)[]>;
+  listeners: Record<string, ((...args: any) => void)[]>;
 
   constructor() {
     this.listeners = {};
@@ -23,7 +23,7 @@ export default class EventBus {
     );
   }
 
-  emit(event: string, ...args) {
+  emit(event: string, ...args: any) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }

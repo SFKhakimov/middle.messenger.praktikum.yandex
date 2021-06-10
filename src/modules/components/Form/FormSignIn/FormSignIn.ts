@@ -5,14 +5,11 @@ import compile from '../../../../common/utils/compile';
 
 import { Props } from './types'
 import { template } from './template';
-import './style.css';
 
-export default class FormSignIn extends Block {
-  props: Props
-
-  constructor(props: Props) {
+export default class FormSignIn extends Block<Props> {
+  constructor() {
     super({
-      ...props,
+      formName: 'Вход',
       form: new Form({
         formName: 'signin',
         title: 'Аторизация',

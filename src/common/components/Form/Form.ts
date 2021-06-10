@@ -5,8 +5,7 @@ import {template} from "./template";
 import './styles.css'
 import {Props} from "./types";
 
-export default class Form extends Block {
-    props: Props
+export default class Form extends Block<Props> {
     constructor(props: Props) {
         super(props);
 

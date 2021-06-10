@@ -2,9 +2,9 @@ import Block from "../../Block";
 import compile from "../../../utils/compile";
 import {template} from "./template";
 
-export default class MessageSuccess extends Block {
+export default class MessageSuccess extends Block<{}> {
     constructor() {
-        super();
+        super({});
     }
 
     render() {

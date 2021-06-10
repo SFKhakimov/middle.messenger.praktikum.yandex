@@ -6,9 +6,7 @@ import { template } from './template';
 import './style.css';
 import {Props} from "./types";
 
-export default class Input extends Block {
-  props: Props
-
+export default class Input extends Block<Props> {
   constructor(props: Props) {
     super({
       ...props,
@@ -44,7 +42,7 @@ export default class Input extends Block {
 
   render() {
     const {
-      labelName, inputName, placeholder, type, errorText, isValid, inputValue,
+      labelName, inputName, placeholder, type = 'text', errorText, isValid, inputValue,
     } = this.props;
     const element = compile(template, {
       labelName,

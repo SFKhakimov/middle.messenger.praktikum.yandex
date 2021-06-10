@@ -9,11 +9,11 @@ import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";
 import './styles.css'
+import {Props} from "./types";
 
-export default class ChatMessageForm extends Block {
-    constructor(props) {
+export default class ChatMessageForm extends Block<Props> {
+    constructor() {
         super({
-            ...props,
             icon: new AddFileIcon({
                 events: {
                     click: (e) => this.onClick(e)
@@ -22,7 +22,7 @@ export default class ChatMessageForm extends Block {
             popper: new Popper({
                 buttons: [
                     new PopperButton({
-                        icon: new AddPhotoIcon({}),
+                        icon: new AddPhotoIcon(),
                         name: 'Фото или Видео'
                     }),
                     new PopperButton({
@@ -41,12 +41,12 @@ export default class ChatMessageForm extends Block {
         });
     }
 
-    onClick(e) {
+    onClick(e: Event) {
         const { popper } = this.props
         popper.addPopper(e)
     }
 
-    submit(e) {
+    submit(e: Event) {
         e.preventDefault()
 
         console.log(e)

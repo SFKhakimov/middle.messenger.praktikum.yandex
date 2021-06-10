@@ -4,11 +4,11 @@ import compile from "../../../../common/utils/compile";
 
 import {template} from "./template";
 import './styles.css'
+import {Props} from "./types";
 
-export default class ProfileContainer extends Block {
-    constructor(props) {
+export default class ProfileContainer extends Block<Props> {
+    constructor() {
         super({
-            ...props,
             info: new ProfileInfo()
         });
 

@@ -5,12 +5,13 @@ import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
 import './style.css';
+import {Props} from "./types";
 
-export default class ChatContainer extends Block {
+export default class ChatContainer extends Block<Props> {
   constructor() {
     super({
       chatList: new ChatList(),
-      chatActive: new Chat({})
+      chatActive: new Chat()
     });
   }
 

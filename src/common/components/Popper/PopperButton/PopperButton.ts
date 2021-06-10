@@ -2,9 +2,10 @@ import Block from "../../Block";
 import compile from "../../../utils/compile";
 
 import { template } from './template'
+import {Props} from "./types";
 
-export default class PopperButton extends Block {
-    constructor(props) {
+export default class PopperButton extends Block<Props> {
+    constructor(props: Props) {
         super(props);
 
     }

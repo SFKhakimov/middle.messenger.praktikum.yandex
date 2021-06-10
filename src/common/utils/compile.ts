@@ -1,8 +1,8 @@
 import { render } from 'pug';
 import Block from '../components/Block';
 
-const compile = (tmpl: string, props: Record<string, unknown>): HTMLElement => {
-  const newProps: Record<string, unknown> = {};
+const compile = (tmpl: string, props: Record<string, any>): HTMLElement => {
+  const newProps: Record<string, any> = {};
 
   for (const key in props) {
     if (props[key] instanceof Block) {

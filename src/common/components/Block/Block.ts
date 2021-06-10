@@ -1,9 +1,10 @@
 import { v4 as makeUUID } from 'uuid';
 import EventBus from '../EventBus';
 import isEqual from '../../utils/mydash/isEqual';
+import {BlockProps} from "./types";
 
-export default abstract class Block {
-  static EVENTS = {
+export default abstract class Block<T extends BlockProps> {
+  private static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
@@ -14,13 +15,13 @@ export default abstract class Block {
 
   private _meta: Record<string, unknown>;
 
-  props: Record<string, unknown>;
+  props: T;
 
   eventBus: () => EventBus;
 
   private _id: string;
 
-  constructor(props: Record<string, unknown> = {}, tagName = 'div', selector: string | null = null) {
+  constructor(props: T, tagName = 'div', selector: string | null = null) {
     const eventBus = new EventBus();
 
     this._meta = {
@@ -60,9 +61,9 @@ export default abstract class Block {
     this.componentDidMount(this.props);
   }
 
-  componentDidMount(props?: Record<string, unknown>) {}
+  componentDidMount(props?: T) {}
 
-  private _componentDidUpdate(oldProps: Record<string, unknown>, newProps: Record<string, unknown>) {
+  private _componentDidUpdate(oldProps: T, newProps: T) {
     // TODO разобраться с ререндером, при изменении нескольких пропсов ререндер происходит несколько раз
     if (!isEqual(oldProps, newProps)) {
       this._removeEvents();
@@ -70,7 +71,7 @@ export default abstract class Block {
     }
   }
 
-  componentDidUpdate(oldProps: Record<string, unknown>, newProps: Record<string, unknown>) {}
+  componentDidUpdate(oldProps: T, newProps: T) {}
 
   setProps = (nextProps: Record<string, unknown>) => {
     if (!nextProps) {
@@ -110,21 +111,25 @@ export default abstract class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  render(): HTMLElement { }
+  render(): HTMLElement {
+    return this._element as HTMLElement
+  }
 
   getContent() {
     return this.element as HTMLElement;
   }
 
-  private _makePropsProxy(props: Record<string, unknown>) {
+  private _makePropsProxy(props: T) {
     const self = this;
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop: string, value) {
+      set(target, prop: string, value: unknown) {
         const oldTarget = { ...target };
+        // TODO разобраться с типизацией
+        // @ts-ignore
         target[prop] = value;
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
@@ -149,16 +154,16 @@ export default abstract class Block {
 
   private _addEvents() {
     const { events = {} } = this.props;
-    Object.keys(events).forEach((eventName) => {
-      this._element?.addEventListener(eventName, events[eventName]);
+    Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
+      this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void);
     });
   }
 
   private _removeEvents() {
     const { events = {} } = this.props;
 
-    Object.keys(events).forEach((eventName) => {
-      this._element?.removeEventListener(eventName, events[eventName]);
+    Object.keys(events).forEach((eventName: keyof GlobalEventHandlersEventMap) => {
+      this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void);
     });
   }
 

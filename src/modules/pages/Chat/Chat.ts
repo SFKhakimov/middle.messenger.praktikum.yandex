@@ -4,11 +4,12 @@ import compile from '../../../common/utils/compile';
 
 import { template } from './template';
 import './style.css';
+import {Props} from "./types";
 
-export default class ChatPage extends Block {
+export default class ChatPage extends Block<Props> {
   constructor() {
     super({
-      chatContainer: new ChatContainer({}),
+      chatContainer: new ChatContainer(),
     }, 'div', '#app');
   }
 

@@ -13,12 +13,12 @@ import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
 import './styles.css';
+import {Props} from "./types";
 
 
-export default class ChatHeaderContainer extends Block {
-  constructor(props) {
+export default class ChatHeaderContainer extends Block<Props> {
+  constructor() {
     super({
-      ...props,
       menuButton: new MenuButton({
         events: {
           click: (e) => this.onClick(e)
@@ -71,7 +71,7 @@ export default class ChatHeaderContainer extends Block {
     });
   }
 
-  onClick(e) {
+  onClick(e: Event) {
     const { popper } = this.props
     popper.addPopper(e)
   }

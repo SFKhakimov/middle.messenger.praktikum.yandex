@@ -1,48 +1,48 @@
 import Block from "../Block";
-import AddUserIcon from "../Icons/AddUserIcon";
-import DeleteUserIcon from "../Icons/DeleteUserIcon";
 import compile from "../../utils/compile";
 
 import { template } from './template'
 import './style.css'
+import {Props} from "./types";
 
 
-export default class Popper extends Block {
-    width = 210
-    constructor(props) {
+export default class Popper extends Block<Props> {
+    private width = 210
+    constructor(props: Props) {
         super({
             ...props,
             x: 35,
             y: 35,
-            addUserIcon: new AddUserIcon(),
-            deleteUserIcon: new DeleteUserIcon(),
             events: {
                 click: (e) => this.removePopper(e)
             }
         });
     }
 
-    addPopper(event) {
-        const sourceElReact = event.target.getBoundingClientRect()
+    addPopper(event: Event) {
+        const sourceElReact = (event.target as HTMLElement).getBoundingClientRect()
         const el = document.documentElement
+        const x = this.props.x || 35
+        const y = this.props.y || 35
 
-        if (sourceElReact.x + this.width + this.props.x > el.clientWidth) {
-            this.getContent().firstChild.style.right = `${this.props.x}px`
+        if (sourceElReact.x + this.width + x > el.clientWidth) {
+            (this.getContent().firstChild as HTMLElement).style.right = `${x}px`
         } else {
-            this.getContent().firstChild.style.left = `${sourceElReact.x}px`
+            (this.getContent().firstChild as HTMLElement).style.left = `${sourceElReact.x}px`
         }
 
-        if (sourceElReact.y + this.width + this.props.x > el.clientHeight) {
-            this.getContent().firstChild.style.bottom = `${this.props.y}px`
+        if (sourceElReact.y + this.width + x > el.clientHeight) {
+            (this.getContent().firstChild as HTMLElement).style.bottom = `${y}px`
         } else {
-            this.getContent().firstChild.style.top = `${sourceElReact.y}px`
+            (this.getContent().firstChild as HTMLElement).style.top = `${sourceElReact.y}px`
         }
 
         this.show()
     }
 
-    removePopper(e) {
-        if (e.target.classList.contains('popper')) {
+    removePopper(e: Event) {
+        if (!e.target) return
+        if ((e.target as HTMLElement).classList.contains('popper')) {
             this.hide()
         }
     }

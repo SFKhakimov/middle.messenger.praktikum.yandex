@@ -5,11 +5,11 @@ import compile from "../../../../common/utils/compile";
 
 import { template } from './template'
 import './styles.css'
+import {Props} from "./types";
 
-export default class ChatActive extends Block {
-    constructor(props) {
+export default class ChatActive extends Block<Props> {
+    constructor() {
         super({
-            ...props,
             messages: [
                 new ChatYourMessage({
                     text: 'Привет как дела?',

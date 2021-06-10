@@ -3,9 +3,10 @@ import compile from "../../../common/utils/compile";
 
 import {template} from "./template";
 import './styls'
+import {Props} from "./types";
 
-export default class Error extends Block {
-    constructor(props) {
+export default class Error extends Block<Props> {
+    constructor(props: Props) {
         super(props);
     }
 

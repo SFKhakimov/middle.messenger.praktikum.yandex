@@ -5,8 +5,9 @@ import {ChatListItem} from "../ChatListItem";
 import compile from '../../../../../common/utils/compile';
 import { template } from './template';
 import './style.css'
+import {Props} from "./types";
 
-export default class ChatList extends Block {
+export default class ChatList extends Block<Props> {
   constructor() {
     super({
       searchBar: new ChatSearchBar(),

@@ -4,7 +4,7 @@ import { template } from './template';
 
 import './style.css';
 
-export default class ChatSearchBar extends Block {
+export default class ChatSearchBar extends Block<{}> {
   constructor() {
     super({});
   }
