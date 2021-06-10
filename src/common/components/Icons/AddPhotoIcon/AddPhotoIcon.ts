@@ -3,12 +3,12 @@ import compile from '../../../utils/compile';
 
 import { template } from './template';
 
-export default class AddPhotoIcon extends Block<{}> {
-  constructor() {
-    super({});
-  }
+export default class AddPhotoIcon extends Block<Record<string, unknown>> {
+    constructor() {
+        super({});
+    }
 
-  render() {
-    return compile(template, {});
-  }
+    render() {
+        return compile(template, {});
+    }
 }

@@ -25,9 +25,9 @@ export default abstract class Block<T extends BlockProps> {
     const eventBus = new EventBus();
 
     this._meta = {
-      tagName,
-      props,
-      selector,
+        tagName,
+        props,
+        selector,
     };
     this._id = makeUUID();
 
@@ -61,22 +61,26 @@ export default abstract class Block<T extends BlockProps> {
     this.componentDidMount(this.props);
   }
 
-  componentDidMount(props?: T) {}
+  componentDidMount(props?: T) {
+    return
+  }
 
   private _componentDidUpdate(oldProps: T, newProps: T) {
     // TODO разобраться с ререндером,
     // при изменении нескольких пропсов ререндер происходит несколько раз
     if (!isEqual(oldProps, newProps)) {
-      this._removeEvents();
-      this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this._removeEvents();
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  componentDidUpdate(oldProps: T, newProps: T) {}
+  componentDidUpdate(oldProps: T, newProps: T) {
+    return
+  }
 
   setProps = (nextProps: Record<string, unknown>) => {
     if (!nextProps) {
-      return;
+        return;
     }
 
     Object.assign(this.props, nextProps);
@@ -91,21 +95,21 @@ export default abstract class Block<T extends BlockProps> {
     const { selector } = this._meta;
 
     if (selector) {
-      const rootNode = document.querySelector(selector as string);
-      if (rootNode) {
-        rootNode.append(block);
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
-      }
-      return;
+        const rootNode = document.querySelector(selector as string);
+        if (rootNode) {
+            rootNode.append(block);
+            this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        }
+        return;
     }
 
     if (this._element?.firstChild && block.firstChild) {
-      if (this._element.parentNode) {
-        this._element.parentNode.replaceChild(block, this._element);
-        this._element = block;
-      }
+        if (this._element.parentNode) {
+            this._element.parentNode.replaceChild(block, this._element);
+            this._element = block;
+        }
     } else {
-      this._element = block; // TODO проверить нужно ли условие
+        this._element = block; // TODO проверить нужно ли условие
     }
     this._element?.setAttribute('data-id', this._id);
 
@@ -123,21 +127,21 @@ export default abstract class Block<T extends BlockProps> {
   private _makePropsProxy(props: T) {
     const self = this;
     return new Proxy(props, {
-      get(target, prop: string) {
-        const value = target[prop];
-        return typeof value === 'function' ? value.bind(target) : value;
-      },
-      set(target, prop: string, value: unknown) {
-        const oldTarget = { ...target };
-        // TODO разобраться с типизацией
-        // @ts-ignore
-        target[prop] = value;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
-        return true;
-      },
-      deleteProperty(target, prop) {
-        throw new Error('Нет доступа');
-      },
+        get(target, prop: string) {
+            const value = target[prop];
+            return typeof value === 'function' ? value.bind(target) : value;
+        },
+        set(target, prop: string, value: unknown) {
+            const oldTarget = { ...target };
+            // TODO разобраться с типизацией
+            // @ts-ignore
+            target[prop] = value;
+            self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+            return true;
+        },
+        deleteProperty(target, prop) {
+            throw new Error('Нет доступа');
+        },
     });
   }
 
@@ -156,7 +160,7 @@ export default abstract class Block<T extends BlockProps> {
   private _addEvents() {
     const { events = {} } = this.props;
     Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
-      this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void);
+        this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void);
     });
   }
 
@@ -164,7 +168,7 @@ export default abstract class Block<T extends BlockProps> {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach((eventName: keyof GlobalEventHandlersEventMap) => {
-      this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void);
+        this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void);
     });
   }
 

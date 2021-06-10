@@ -5,19 +5,19 @@ import './style.css';
 import { Props } from './types';
 
 export default class ChatListItem extends Block<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+    constructor(props: Props) {
+        super(props);
+    }
 
-  render() {
-    const {
-      name, message, date, countMessage,
-    } = this.props;
-    return compile(template, {
-      name,
-      message,
-      date,
-      countMessage,
-    });
-  }
+    render() {
+        const {
+            name, message, date, countMessage,
+        } = this.props;
+        return compile(template, {
+            name,
+            message,
+            date,
+            countMessage,
+        });
+    }
 }

@@ -8,31 +8,31 @@ import './style.css';
 import { Props } from './types';
 
 export default class ChatList extends Block<Props> {
-  constructor() {
-    super({
-      searchBar: new ChatSearchBar(),
-      items: [
-        new ChatListItem({
-          name: 'Шакир',
-          message: 'Йоу, как дела?',
-          date: '19:17',
-          countMessage: 1,
-        }),
-        new ChatListItem({
-          name: 'Евгений',
-          message: 'Сегодня тусим?',
-          date: '20:04',
-          countMessage: 3,
-        }),
-      ],
-    });
-  }
+    constructor() {
+        super({
+            searchBar: new ChatSearchBar(),
+            items: [
+                new ChatListItem({
+                    name: 'Шакир',
+                    message: 'Йоу, как дела?',
+                    date: '19:17',
+                    countMessage: 1,
+                }),
+                new ChatListItem({
+                    name: 'Евгений',
+                    message: 'Сегодня тусим?',
+                    date: '20:04',
+                    countMessage: 3,
+                }),
+            ],
+        });
+    }
 
-  render() {
-    const { searchBar, items } = this.props;
-    return compile(template, {
-      searchBar,
-      items,
-    });
-  }
+    render() {
+        const { searchBar, items } = this.props;
+        return compile(template, {
+            searchBar,
+            items,
+        });
+    }
 }

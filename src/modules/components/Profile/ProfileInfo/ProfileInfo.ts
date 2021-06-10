@@ -17,159 +17,159 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ProfileInfo extends Block<Props> {
-  constructor() {
-    super({
-      name: 'Иван',
-      image: new ProfileImage({
-        events: {
-          click: () => this.addImageEditModal(),
-        },
-      }),
-      infoFields: new ProfileInfoFieldContainer({
-        fields: [
-          new ProfileInfoField({
-            label: 'Почта',
-            value: 'test@mail.ru',
-          }),
-          new ProfileInfoField({
-            label: 'Логин',
-            value: 'test',
-          }),
-          new ProfileInfoField({
-            label: 'Имя',
-            value: 'Иван',
-          }),
-          new ProfileInfoField({
-            label: 'Фамилия',
-            value: 'Иванов',
-          }),
-          new ProfileInfoField({
-            label: 'Имя в чате',
-            value: 'Ivan',
-          }),
-          new ProfileInfoField({
-            label: 'Телефон',
-            value: '+79999999999',
-          }),
-        ],
-      }),
-      buttons: new ProfileInfoFieldContainer({
-        fields: [
-          new ProfileInfoButtonField({
-            button: new ProfileInfoEditButton({
-              title: 'Изменить данные',
-              events: {
-                click: () => this.addEditProfileModal(),
-              },
+    constructor() {
+        super({
+            name: 'Иван',
+            image: new ProfileImage({
+                events: {
+                    click: () => this.addImageEditModal(),
+                },
             }),
-          }),
-          new ProfileInfoButtonField({
-            button: new ProfileInfoEditButton({
-              title: 'Изменить пароль',
-              events: {
-                click: () => this.addEditPasswordModal(),
-              },
+            infoFields: new ProfileInfoFieldContainer({
+                fields: [
+                    new ProfileInfoField({
+                        label: 'Почта',
+                        value: 'test@mail.ru',
+                    }),
+                    new ProfileInfoField({
+                        label: 'Логин',
+                        value: 'test',
+                    }),
+                    new ProfileInfoField({
+                        label: 'Имя',
+                        value: 'Иван',
+                    }),
+                    new ProfileInfoField({
+                        label: 'Фамилия',
+                        value: 'Иванов',
+                    }),
+                    new ProfileInfoField({
+                        label: 'Имя в чате',
+                        value: 'Ivan',
+                    }),
+                    new ProfileInfoField({
+                        label: 'Телефон',
+                        value: '+79999999999',
+                    }),
+                ],
             }),
-          }),
-          new ProfileInfoButtonField({
-            button: new ProfileInfoLogoutButton({
-              title: 'Выйти',
+            buttons: new ProfileInfoFieldContainer({
+                fields: [
+                    new ProfileInfoButtonField({
+                        button: new ProfileInfoEditButton({
+                            title: 'Изменить данные',
+                            events: {
+                                click: () => this.addEditProfileModal(),
+                            },
+                        }),
+                    }),
+                    new ProfileInfoButtonField({
+                        button: new ProfileInfoEditButton({
+                            title: 'Изменить пароль',
+                            events: {
+                                click: () => this.addEditPasswordModal(),
+                            },
+                        }),
+                    }),
+                    new ProfileInfoButtonField({
+                        button: new ProfileInfoLogoutButton({
+                            title: 'Выйти',
+                        }),
+                    }),
+                ],
             }),
-          }),
-        ],
-      }),
-      editProfileImageModal: new Modal({
-        content: new ProfileImageEditModal(),
-      }),
-      editProfileModal: new Modal({
-        content: new ProfileInfoEditModal({
-          title: 'Изменение данных',
-          inputs: [
-            new Input({
-              inputName: 'email',
-              labelName: 'Почтв',
-              type: 'text',
+            editProfileImageModal: new Modal({
+                content: new ProfileImageEditModal(),
             }),
-            new Input({
-              inputName: 'login',
-              labelName: 'Логин',
-              type: 'text',
+            editProfileModal: new Modal({
+                content: new ProfileInfoEditModal({
+                    title: 'Изменение данных',
+                    inputs: [
+                        new Input({
+                            inputName: 'email',
+                            labelName: 'Почтв',
+                            type: 'text',
+                        }),
+                        new Input({
+                            inputName: 'login',
+                            labelName: 'Логин',
+                            type: 'text',
+                        }),
+                        new Input({
+                            inputName: 'firstName',
+                            labelName: 'Имя',
+                            type: 'text',
+                        }),
+                        new Input({
+                            inputName: 'lastName',
+                            labelName: 'Фамилия',
+                            type: 'text',
+                        }),
+                        new Input({
+                            inputName: 'login',
+                            labelName: 'Имя в чате',
+                            type: 'text',
+                        }),
+                        new Input({
+                            inputName: 'phone',
+                            labelName: 'Телефон',
+                            type: 'text',
+                        }),
+                    ],
+                }),
             }),
-            new Input({
-              inputName: 'firstName',
-              labelName: 'Имя',
-              type: 'text',
+            editPasswordModal: new Modal({
+                content: new ProfileInfoEditModal({
+                    title: 'Изменение пароля',
+                    inputs: [
+                        new Input({
+                            inputName: 'oldPassword',
+                            labelName: 'Старый пароль',
+                            type: 'password',
+                        }),
+                        new Input({
+                            inputName: 'newPassword',
+                            labelName: 'Новый пароль',
+                            type: 'password',
+                        }),
+                        new Input({
+                            inputName: 'newPasswordAgain',
+                            labelName: 'Пароль еще раз',
+                            type: 'password',
+                        }),
+                    ],
+                }),
             }),
-            new Input({
-              inputName: 'lastName',
-              labelName: 'Фамилия',
-              type: 'text',
-            }),
-            new Input({
-              inputName: 'login',
-              labelName: 'Имя в чате',
-              type: 'text',
-            }),
-            new Input({
-              inputName: 'phone',
-              labelName: 'Телефон',
-              type: 'text',
-            }),
-          ],
-        }),
-      }),
-      editPasswordModal: new Modal({
-        content: new ProfileInfoEditModal({
-          title: 'Изменение пароля',
-          inputs: [
-            new Input({
-              inputName: 'oldPassword',
-              labelName: 'Старый пароль',
-              type: 'password',
-            }),
-            new Input({
-              inputName: 'newPassword',
-              labelName: 'Новый пароль',
-              type: 'password',
-            }),
-            new Input({
-              inputName: 'newPasswordAgain',
-              labelName: 'Пароль еще раз',
-              type: 'password',
-            }),
-          ],
-        }),
-      }),
-    });
-  }
+        });
+    }
 
-  addImageEditModal() {
-    const { editProfileImageModal } = this.props;
-    editProfileImageModal.show('flex');
-  }
+    addImageEditModal() {
+        const { editProfileImageModal } = this.props;
+        editProfileImageModal.show('flex');
+    }
 
-  addEditProfileModal() {
-    const { editProfileModal } = this.props;
-    editProfileModal.show('flex');
-  }
+    addEditProfileModal() {
+        const { editProfileModal } = this.props;
+        editProfileModal.show('flex');
+    }
 
-  addEditPasswordModal() {
-    const { editPasswordModal } = this.props;
-    editPasswordModal.show('flex');
-  }
+    addEditPasswordModal() {
+        const { editPasswordModal } = this.props;
+        editPasswordModal.show('flex');
+    }
 
-  render() {
-    const {
-      infoFields, buttons, image, name, editProfileModal, editProfileImageModal, editPasswordModal,
-    } = this.props;
-    return compile(template, {
-      infoFields,
-      buttons,
-      image,
-      name,
-      editProfileModal,
-      editProfileImageModal,
-      editPasswordModal,
-    });
-  }
+    render() {
+        const {
+            infoFields, buttons, image, name, editProfileModal, editProfileImageModal, editPasswordModal,
+        } = this.props;
+        return compile(template, {
+            infoFields,
+            buttons,
+            image,
+            name,
+            editProfileModal,
+            editProfileImageModal,
+            editPasswordModal,
+        });
+    }
 }

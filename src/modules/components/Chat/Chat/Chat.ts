@@ -9,18 +9,18 @@ import './styles.css';
 import { Props } from './types';
 
 export default class Chat extends Block<Props> {
-  constructor() {
-    super({
-      chatHeader: new ChatHeaderContainer(),
-      dialog: new ChatActive(),
-      form: new ChatMessageForm(),
-    });
-  }
+    constructor() {
+        super({
+            chatHeader: new ChatHeaderContainer(),
+            dialog: new ChatActive(),
+            form: new ChatMessageForm(),
+        });
+    }
 
-  render() {
-    const { chatHeader, dialog, form } = this.props;
-    return compile(template, {
-      chatHeader, dialog, form,
-    });
-  }
+    render() {
+        const { chatHeader, dialog, form } = this.props;
+        return compile(template, {
+            chatHeader, dialog, form,
+        });
+    }
 }

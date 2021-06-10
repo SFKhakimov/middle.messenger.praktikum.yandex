@@ -10,12 +10,12 @@ export default class Popper extends Block<Props> {
 
   constructor(props: Props) {
     super({
-      ...props,
-      x: 35,
-      y: 35,
-      events: {
-        click: (e) => this.removePopper(e),
-      },
+        ...props,
+        x: 35,
+        y: 35,
+        events: {
+            click: (e) => this.removePopper(e),
+        },
     });
   }
 
@@ -26,15 +26,15 @@ export default class Popper extends Block<Props> {
     const y = this.props.y || 35;
 
     if (sourceElReact.x + this.width + x > el.clientWidth) {
-      (this.getContent().firstChild as HTMLElement).style.right = `${x}px`;
+        (this.getContent().firstChild as HTMLElement).style.right = `${x}px`;
     } else {
-      (this.getContent().firstChild as HTMLElement).style.left = `${sourceElReact.x}px`;
+        (this.getContent().firstChild as HTMLElement).style.left = `${sourceElReact.x}px`;
     }
 
     if (sourceElReact.y + this.width + x > el.clientHeight) {
-      (this.getContent().firstChild as HTMLElement).style.bottom = `${y}px`;
+        (this.getContent().firstChild as HTMLElement).style.bottom = `${y}px`;
     } else {
-      (this.getContent().firstChild as HTMLElement).style.top = `${sourceElReact.y}px`;
+        (this.getContent().firstChild as HTMLElement).style.top = `${sourceElReact.y}px`;
     }
 
     this.show();
@@ -43,14 +43,14 @@ export default class Popper extends Block<Props> {
   removePopper(e: Event) {
     if (!e.target) return;
     if ((e.target as HTMLElement).classList.contains('popper')) {
-      this.hide();
+        this.hide();
     }
   }
 
   render() {
     const { buttons } = this.props;
     return compile(template, {
-      buttons,
+        buttons,
     });
   }
 }

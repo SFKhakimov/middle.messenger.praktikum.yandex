@@ -8,18 +8,18 @@ import './style.css';
 import { Props } from './types';
 
 export default class ChatContainer extends Block<Props> {
-  constructor() {
-    super({
-      chatList: new ChatList(),
-      chatActive: new Chat(),
-    });
-  }
+    constructor() {
+        super({
+            chatList: new ChatList(),
+            chatActive: new Chat(),
+        });
+    }
 
-  render() {
-    const { chatList, chatActive } = this.props;
-    return compile(template, {
-      chatList,
-      chatActive,
-    });
-  }
+    render() {
+        const { chatList, chatActive } = this.props;
+        return compile(template, {
+            chatList,
+            chatActive,
+        });
+    }
 }

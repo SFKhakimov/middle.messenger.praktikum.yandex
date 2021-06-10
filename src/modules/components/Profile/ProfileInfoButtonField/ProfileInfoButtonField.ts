@@ -6,14 +6,14 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ProfileInfoButtonField<T> extends Block<Props<any>> {
-  constructor(props: Props<T>) {
-    super(props);
-  }
+    constructor(props: Props<T>) {
+        super(props);
+    }
 
-  render() {
-    const { button } = this.props;
-    return compile(template, {
-      button,
-    });
-  }
+    render() {
+        const { button } = this.props;
+        return compile(template, {
+            button,
+        });
+    }
 }

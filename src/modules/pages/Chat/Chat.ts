@@ -7,16 +7,16 @@ import './style.css';
 import { Props } from './types';
 
 export default class ChatPage extends Block<Props> {
-  constructor() {
-    super({
-      chatContainer: new ChatContainer(),
-    }, 'div', '#app');
-  }
+    constructor() {
+        super({
+            chatContainer: new ChatContainer(),
+        }, 'div', '#app');
+    }
 
-  render() {
-    const { chatContainer } = this.props;
-    return compile(template, {
-      chatContainer,
-    });
-  }
+    render() {
+        const { chatContainer } = this.props;
+        return compile(template, {
+            chatContainer,
+        });
+    }
 }

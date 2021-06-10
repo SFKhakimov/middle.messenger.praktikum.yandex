@@ -6,11 +6,11 @@ import './syles.css';
 import { Props } from './types';
 
 export default class ProfileImage extends Block<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+    constructor(props: Props) {
+        super(props);
+    }
 
-  render() {
-    return compile(template, {});
-  }
+    render() {
+        return compile(template, {});
+    }
 }

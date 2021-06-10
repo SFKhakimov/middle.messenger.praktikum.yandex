@@ -7,16 +7,16 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ProfileContainer extends Block<Props> {
-  constructor() {
-    super({
-      info: new ProfileInfo(),
-    });
-  }
+    constructor() {
+        super({
+            info: new ProfileInfo(),
+        });
+    }
 
-  render() {
-    const { info } = this.props;
-    return compile(template, {
-      info,
-    });
-  }
+    render() {
+        const { info } = this.props;
+        return compile(template, {
+            info,
+        });
+    }
 }

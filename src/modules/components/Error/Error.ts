@@ -6,16 +6,16 @@ import './styls.css';
 import { Props } from './types';
 
 export default class Error extends Block<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+    constructor(props: Props) {
+        super(props);
+    }
 
-  render() {
-    const {
-      title, subtitle, navigateText, navigatePath,
-    } = this.props;
-    return compile(template, {
-      title, subtitle, navigateText, navigatePath,
-    });
-  }
+    render() {
+        const {
+            title, subtitle, navigateText, navigatePath,
+        } = this.props;
+        return compile(template, {
+            title, subtitle, navigateText, navigatePath,
+        });
+    }
 }

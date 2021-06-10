@@ -6,14 +6,14 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ProfileInfoEditButton extends Block<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+    constructor(props: Props) {
+        super(props);
+    }
 
-  render() {
-    const { title } = this.props;
-    return compile(template, {
-      title,
-    });
-  }
+    render() {
+        const { title } = this.props;
+        return compile(template, {
+            title,
+        });
+    }
 }

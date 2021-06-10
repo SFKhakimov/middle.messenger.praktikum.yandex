@@ -12,50 +12,50 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ChatMessageForm extends Block<Props> {
-  constructor() {
-    super({
-      icon: new AddFileIcon({
-        events: {
-          click: (e) => this.onClick(e),
-        },
-      }),
-      popper: new Popper({
-        buttons: [
-          new PopperButton({
-            icon: new AddPhotoIcon(),
-            name: 'Фото или Видео',
-          }),
-          new PopperButton({
-            icon: new AddMessageFileIcon(),
-            name: 'Файл',
-          }),
-          new PopperButton({
-            icon: new AddLocation(),
-            name: 'Локация',
-          }),
-        ],
-      }),
-      events: {
-        submit: (e) => this.submit(e),
-      },
-    });
-  }
+    constructor() {
+        super({
+            icon: new AddFileIcon({
+                events: {
+                    click: (e) => this.onClick(e),
+                },
+            }),
+            popper: new Popper({
+                buttons: [
+                    new PopperButton({
+                        icon: new AddPhotoIcon(),
+                        name: 'Фото или Видео',
+                    }),
+                    new PopperButton({
+                        icon: new AddMessageFileIcon(),
+                        name: 'Файл',
+                    }),
+                    new PopperButton({
+                        icon: new AddLocation(),
+                        name: 'Локация',
+                    }),
+                ],
+            }),
+            events: {
+                submit: (e) => this.submit(e),
+            },
+        });
+    }
 
-  onClick(e: Event) {
-    const { popper } = this.props;
-    popper.addPopper(e);
-  }
+    onClick(e: Event) {
+        const { popper } = this.props;
+        popper.addPopper(e);
+    }
 
-  submit(e: Event) {
-    e.preventDefault();
+    submit(e: Event) {
+        e.preventDefault();
 
-    console.log(e);
-  }
+        console.log(e);
+    }
 
-  render() {
-    const { icon, popper } = this.props;
-    return compile(template, {
-      icon, popper,
-    });
-  }
+    render() {
+        const { icon, popper } = this.props;
+        return compile(template, {
+            icon, popper,
+        });
+    }
 }

@@ -9,17 +9,17 @@ import './styles.css';
 import { Props } from './types';
 
 export default class Profile extends Block<Props> {
-  constructor() {
-    super({
-      navigation: new ProfileNavigation(),
-      main: new ProfileContainer(),
-    }, 'main', '#app');
-  }
+    constructor() {
+        super({
+            navigation: new ProfileNavigation(),
+            main: new ProfileContainer(),
+        }, 'main', '#app');
+    }
 
-  render() {
-    const { navigation, main } = this.props;
-    return compile(template, {
-      navigation, main,
-    });
-  }
+    render() {
+        const { navigation, main } = this.props;
+        return compile(template, {
+            navigation, main,
+        });
+    }
 }

@@ -6,14 +6,14 @@ import './styles.css';
 import { Props } from './types';
 
 export default class ProfileInfoEditModal extends Block<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+    constructor(props: Props) {
+        super(props);
+    }
 
-  render() {
-    const { inputs, title } = this.props;
-    return compile(template, {
-      inputs, title,
-    });
-  }
+    render() {
+        const { inputs, title } = this.props;
+        return compile(template, {
+            inputs, title,
+        });
+    }
 }
