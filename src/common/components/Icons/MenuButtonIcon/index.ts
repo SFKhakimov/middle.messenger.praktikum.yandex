@@ -1,3 +1,3 @@
-import MenuButtonIcon from './MenuButtonIcon'
+import MenuButtonIcon from './MenuButtonIcon';
 
-export default MenuButtonIcon
+export default MenuButtonIcon;

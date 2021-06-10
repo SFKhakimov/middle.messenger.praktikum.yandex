@@ -1,16 +1,14 @@
-import Block from "../../Block";
-import compile from "../../../utils/compile";
+import Block from '../../Block';
+import compile from '../../../utils/compile';
 
-import {template} from "./template";
+import { template } from './template';
 
 export default class AddPhotoIcon extends Block<{}> {
-    constructor() {
-        super({});
+  constructor() {
+    super({});
+  }
 
-    }
-
-    render() {
-        return compile(template, {})
-    }
-
+  render() {
+    return compile(template, {});
+  }
 }

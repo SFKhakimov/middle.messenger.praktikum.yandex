@@ -1,3 +1,3 @@
 export type Props<T> = {
-    fields: T
-}
+  fields: T
+};

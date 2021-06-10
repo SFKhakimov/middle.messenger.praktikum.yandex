@@ -1,6 +1,6 @@
-import {MyEvents} from "../../types/Event";
+import { MyEvents } from '../../types/Event';
 
 export type Props<T> = {
-    content: T
-    events?: MyEvents
-}
+  content: T
+  events?: MyEvents
+};

@@ -1,4 +1,4 @@
 export type Props = {
-    label: string
-    value: string
-}
+  label: string
+  value: string
+};

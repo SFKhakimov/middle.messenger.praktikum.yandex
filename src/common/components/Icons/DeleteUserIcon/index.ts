@@ -1,3 +1,3 @@
-import DeleteUserIcon from './DeleteUserIcon'
+import DeleteUserIcon from './DeleteUserIcon';
 
-export default DeleteUserIcon
+export default DeleteUserIcon;

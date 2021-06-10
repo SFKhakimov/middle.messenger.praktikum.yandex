@@ -1,3 +1,3 @@
-import PopperButton from "./PopperButton";
+import PopperButton from './PopperButton';
 
-export default PopperButton
+export default PopperButton;

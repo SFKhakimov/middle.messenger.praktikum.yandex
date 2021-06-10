@@ -1,46 +1,44 @@
 import Block from '../../../../common/components/Block';
-import MenuButton from "../../../../common/components/Buttons/MenuButton";
-import Popper from "../../../../common/components/Popper";
-import PopperButton from "../../../../common/components/Popper/PopperButton";
-import AddUserIcon from "../../../../common/components/Icons/AddUserIcon";
-import DeleteUserIcon from "../../../../common/components/Icons/DeleteUserIcon";
-import Modal from "../../../../common/components/Modal";
-import Form from "../../../../common/components/Form/Form";
-import Input from "../../../../common/components/Input";
-
+import MenuButton from '../../../../common/components/Buttons/MenuButton';
+import Popper from '../../../../common/components/Popper';
+import PopperButton from '../../../../common/components/Popper/PopperButton';
+import AddUserIcon from '../../../../common/components/Icons/AddUserIcon';
+import DeleteUserIcon from '../../../../common/components/Icons/DeleteUserIcon';
+import Modal from '../../../../common/components/Modal';
+import Form from '../../../../common/components/Form/Form';
+import Input from '../../../../common/components/Input';
 
 import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
 import './styles.css';
-import {Props} from "./types";
-
+import { Props } from './types';
 
 export default class ChatHeaderContainer extends Block<Props> {
   constructor() {
     super({
       menuButton: new MenuButton({
         events: {
-          click: (e) => this.onClick(e)
-        }
+          click: (e) => this.onClick(e),
+        },
       }),
       popper: new Popper({
         buttons: [
-            new PopperButton({
-              name: 'Добавить пользователя',
-              icon: new AddUserIcon(),
-              events: {
-                click: () => this.openAddUserModal()
-              }
-            }),
-            new PopperButton({
-              name: 'Удалить пользователя',
-              icon: new DeleteUserIcon(),
-              events: {
-                click: () => this.openRemoveUserModal()
-              }
-            })
-        ]
+          new PopperButton({
+            name: 'Добавить пользователя',
+            icon: new AddUserIcon(),
+            events: {
+              click: () => this.openAddUserModal(),
+            },
+          }),
+          new PopperButton({
+            name: 'Удалить пользователя',
+            icon: new DeleteUserIcon(),
+            events: {
+              click: () => this.openRemoveUserModal(),
+            },
+          }),
+        ],
       }),
       addUserModal: new Modal({
         content: new Form({
@@ -48,12 +46,12 @@ export default class ChatHeaderContainer extends Block<Props> {
           title: 'Добавление пользователя',
           buttonText: 'Добавить',
           content: [
-              new Input({
-                labelName: 'Логин',
-                inputName: 'login',
-              })
-          ]
-        })
+            new Input({
+              labelName: 'Логин',
+              inputName: 'login',
+            }),
+          ],
+        }),
       }),
       removeUserModal: new Modal({
         content: new Form({
@@ -64,35 +62,37 @@ export default class ChatHeaderContainer extends Block<Props> {
             new Input({
               labelName: 'Логин',
               inputName: 'login',
-            })
-          ]
-        })
-      })
+            }),
+          ],
+        }),
+      }),
     });
   }
 
   onClick(e: Event) {
-    const { popper } = this.props
-    popper.addPopper(e)
+    const { popper } = this.props;
+    popper.addPopper(e);
   }
 
   openAddUserModal() {
-    const { addUserModal } = this.props
-    addUserModal.show('flex')
+    const { addUserModal } = this.props;
+    addUserModal.show('flex');
   }
 
   openRemoveUserModal() {
-    const { removeUserModal } = this.props
-    removeUserModal.show('flex')
+    const { removeUserModal } = this.props;
+    removeUserModal.show('flex');
   }
 
   render() {
-    const { menuButton, popper, addUserModal, removeUserModal } = this.props;
+    const {
+      menuButton, popper, addUserModal, removeUserModal,
+    } = this.props;
     return compile(template, {
       menuButton,
       popper,
       addUserModal,
-      removeUserModal
+      removeUserModal,
     });
   }
 }

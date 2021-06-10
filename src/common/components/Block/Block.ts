@@ -1,7 +1,7 @@
 import { v4 as makeUUID } from 'uuid';
 import EventBus from '../EventBus';
 import isEqual from '../../utils/mydash/isEqual';
-import {BlockProps} from "./types";
+import { BlockProps } from './types';
 
 export default abstract class Block<T extends BlockProps> {
   private static EVENTS = {
@@ -64,7 +64,8 @@ export default abstract class Block<T extends BlockProps> {
   componentDidMount(props?: T) {}
 
   private _componentDidUpdate(oldProps: T, newProps: T) {
-    // TODO разобраться с ререндером, при изменении нескольких пропсов ререндер происходит несколько раз
+    // TODO разобраться с ререндером,
+    // при изменении нескольких пропсов ререндер происходит несколько раз
     if (!isEqual(oldProps, newProps)) {
       this._removeEvents();
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -112,7 +113,7 @@ export default abstract class Block<T extends BlockProps> {
   }
 
   render(): HTMLElement {
-    return this._element as HTMLElement
+    return this._element as HTMLElement;
   }
 
   getContent() {

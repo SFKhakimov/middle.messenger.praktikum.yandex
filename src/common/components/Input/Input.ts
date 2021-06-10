@@ -4,7 +4,7 @@ import { VALIDATOR } from '../../constants/validator';
 import { template } from './template';
 
 import './style.css';
-import {Props} from "./types";
+import { Props } from './types';
 
 export default class Input extends Block<Props> {
   constructor(props: Props) {
@@ -19,8 +19,8 @@ export default class Input extends Block<Props> {
     });
   }
 
-  onValid(name: string, value: FormDataEntryValue | null) {
-    if (typeof value !== 'string') return
+  onValid(name: string, value: FormDataEntryValue | null): { isValid: boolean, errorText: string } | void {
+    if (typeof value !== 'string') return;
     return VALIDATOR[`${name}`]?.(value);
   }
 

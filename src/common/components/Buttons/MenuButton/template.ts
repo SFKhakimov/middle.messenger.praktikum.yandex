@@ -1,1 +1,1 @@
-export const template = `button.button !{buttonIcon}`
+export const template = 'button.button !{buttonIcon}';

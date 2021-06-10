@@ -1,1 +1,1 @@
-export { default as ProfileImageEditModal } from './ProfileImageEditModal'
+export { default as ProfileImageEditModal } from './ProfileImageEditModal';

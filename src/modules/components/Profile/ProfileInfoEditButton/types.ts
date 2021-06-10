@@ -1,6 +1,6 @@
-import {MyEvents} from "../../../../common/types/Event";
+import { MyEvents } from '../../../../common/types/Event';
 
 export type Props = {
-    title: string
-    events: MyEvents
-}
+  title: string
+  events: MyEvents
+};

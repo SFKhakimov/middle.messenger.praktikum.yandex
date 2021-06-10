@@ -1,1 +1,1 @@
-export const template = `main.main !{navigation} !{main}`
+export const template = 'main.main !{navigation} !{main}';

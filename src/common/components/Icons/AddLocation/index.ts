@@ -1,3 +1,3 @@
-import AddLocation from './AddLocation'
+import AddLocation from './AddLocation';
 
-export default AddLocation
+export default AddLocation;

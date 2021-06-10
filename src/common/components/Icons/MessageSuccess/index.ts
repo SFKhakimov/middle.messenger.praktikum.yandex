@@ -1,3 +1,3 @@
-import MessageSuccess from './MessageSuccess'
+import MessageSuccess from './MessageSuccess';
 
-export default MessageSuccess
+export default MessageSuccess;

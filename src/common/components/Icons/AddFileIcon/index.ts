@@ -1,3 +1,3 @@
-import AddFileIcon from './AddFileIcon'
+import AddFileIcon from './AddFileIcon';
 
-export default AddFileIcon
+export default AddFileIcon;

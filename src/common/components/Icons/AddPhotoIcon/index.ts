@@ -1,3 +1,3 @@
-import AddPhotoIcon from "./AddPhotoIcon";
+import AddPhotoIcon from './AddPhotoIcon';
 
-export default AddPhotoIcon
+export default AddPhotoIcon;

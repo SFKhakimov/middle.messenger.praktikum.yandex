@@ -1,3 +1,3 @@
-import AddUserIcon from './AddUserIcon'
+import AddUserIcon from './AddUserIcon';
 
-export default AddUserIcon
+export default AddUserIcon;

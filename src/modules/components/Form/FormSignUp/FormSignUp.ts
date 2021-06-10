@@ -1,10 +1,9 @@
 import Block from '../../../../common/components/Block';
 import Input from '../../../../common/components/Input';
-import {Form} from "../../../../common/components/Form";
+import { Form } from '../../../../common/components/Form';
 import compile from '../../../../common/utils/compile';
 import { template } from './template';
-import {Props} from "./types";
-
+import { Props } from './types';
 
 export default class FormSignUp extends Block<Props> {
   constructor() {
@@ -53,7 +52,7 @@ export default class FormSignUp extends Block<Props> {
             inputName: 'passwordAgain',
             type: 'password',
           }),
-        ]
+        ],
       }),
       events: {
         submit: (e: Event) => this.onSubmit(e),
@@ -81,11 +80,11 @@ export default class FormSignUp extends Block<Props> {
 
   render() {
     const {
-      form
+      form,
     } = this.props;
 
     return compile(template, {
-      form
+      form,
     });
   }
 }

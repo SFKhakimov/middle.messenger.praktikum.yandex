@@ -1,6 +1,6 @@
-import Input from "../../../../common/components/Input";
+import Input from '../../../../common/components/Input';
 
 export type Props = {
-    title: string
-    inputs: Input[]
-}
+  title: string
+  inputs: Input[]
+};

@@ -1,2 +1,2 @@
 export const template = `.popper
-                            .popper__content !{buttons}`
+                            .popper__content !{buttons}`;

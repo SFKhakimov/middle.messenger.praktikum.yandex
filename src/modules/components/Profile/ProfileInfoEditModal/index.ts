@@ -1,1 +1,1 @@
-export { default as ProfileInfoEditModal} from './ProfileInfoEditModal'
+export { default as ProfileInfoEditModal } from './ProfileInfoEditModal';

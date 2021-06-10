@@ -1,1 +1,1 @@
-export { default as ChatHeaderContainer } from './ChatHeaderContainer'
+export { default as ChatHeaderContainer } from './ChatHeaderContainer';

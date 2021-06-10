@@ -1,1 +1,1 @@
-export { default as ProfileInfoFieldContainer} from './ProfileInfoFieldContainer'
+export { default as ProfileInfoFieldContainer } from './ProfileInfoFieldContainer';

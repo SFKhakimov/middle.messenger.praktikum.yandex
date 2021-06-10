@@ -1,13 +1,13 @@
-import Block from "../../Block";
-import compile from "../../../utils/compile";
-import {template} from "./template";
+import Block from '../../Block';
+import compile from '../../../utils/compile';
+import { template } from './template';
 
 export default class AddMessageFileIcon extends Block<{}> {
-    constructor() {
-        super({});
-    }
+  constructor() {
+    super({});
+  }
 
-    render() {
-        return compile(template, {})
-    }
+  render() {
+    return compile(template, {});
+  }
 }

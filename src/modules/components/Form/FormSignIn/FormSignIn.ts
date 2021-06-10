@@ -1,9 +1,9 @@
 import Block from '../../../../common/components/Block';
-import {Form} from "../../../../common/components/Form";
+import { Form } from '../../../../common/components/Form';
 import Input from '../../../../common/components/Input';
 import compile from '../../../../common/utils/compile';
 
-import { Props } from './types'
+import { Props } from './types';
 import { template } from './template';
 
 export default class FormSignIn extends Block<Props> {
@@ -28,7 +28,7 @@ export default class FormSignIn extends Block<Props> {
             inputName: 'password',
             type: 'password',
           }),
-        ]
+        ],
       }),
       events: {
         submit: (e: Event) => this.onSubmit(e),
@@ -38,7 +38,7 @@ export default class FormSignIn extends Block<Props> {
 
   onSubmit(e: Event) {
     e.preventDefault();
-    const formData =  new FormData(e.target as HTMLFormElement);
+    const formData = new FormData(e.target as HTMLFormElement);
 
     const form = {
       login: formData.get('login'),
@@ -52,7 +52,7 @@ export default class FormSignIn extends Block<Props> {
   render() {
     const { form } = this.props;
     const element = compile(template, {
-      form
+      form,
     });
 
     return element;

@@ -1,3 +1,3 @@
-import Error404 from "./404";
+import Error404 from './404';
 
-const error404 = new Error404()
+const error404 = new Error404();

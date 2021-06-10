@@ -3,4 +3,4 @@ export const template = `form.form(name="edit-profile")
                                     h2.form__title !{title}
                                     | !{inputs}
                                 .form__container
-                                    button.form__button Сохранить`
+                                    button.form__button Сохранить`;

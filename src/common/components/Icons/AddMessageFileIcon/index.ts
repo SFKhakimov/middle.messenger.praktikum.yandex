@@ -1,3 +1,3 @@
-import AddMessageFileIcon from './AddMessageFileIcon'
+import AddMessageFileIcon from './AddMessageFileIcon';
 
-export default AddMessageFileIcon
+export default AddMessageFileIcon;

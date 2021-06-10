@@ -1,5 +1,5 @@
-import {FormSignIn} from "../../components/Form";
+import { FormSignIn } from '../../components/Form';
 
 export type Props = {
-    form: FormSignIn
-}
+  form: FormSignIn
+};

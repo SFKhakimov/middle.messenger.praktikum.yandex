@@ -1,3 +1,3 @@
-import HTTPTransport from './HTTPTransport'
+import HTTPTransport from './HTTPTransport';
 
-export default HTTPTransport
+export default HTTPTransport;
