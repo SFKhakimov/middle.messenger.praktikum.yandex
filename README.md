@@ -6,3 +6,6 @@
 
 ## Макет приложения
 Макет находится в Figma - https://www.figma.com/file/S402zRbTAX3gMFiNwrgToN/Untitled?node-id=0%3A1
+
+##Пулл реквест
+https://github.com/SFKhakimov/middle.messenger.praktikum.yandex/pull/2
