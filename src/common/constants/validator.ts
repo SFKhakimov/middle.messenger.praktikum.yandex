@@ -1,15 +1,16 @@
 import {
-    emailValidator, loginValidator, notIsEmptyValidator, passwordValidator,
+    emailValidator, loginValidator, notIsEmptyValidator, passwordValidator, phoneValidator,
 } from '../utils/validator';
 import { ValidatorResult } from '../utils/types';
 
-export const VALIDATOR: Record<string, (value: string) => ValidatorResult> = {
+export const VALIDATOR: Record<string, (value: string, againValue?: string) => ValidatorResult> = {
     email: emailValidator,
     login: loginValidator,
     firstName: notIsEmptyValidator,
     lastName: notIsEmptyValidator,
-    phone: notIsEmptyValidator, // TODO поменять на корректную валидацию
+    phone: phoneValidator,
+    oldPassword: passwordValidator,
     password: passwordValidator,
     passwordAgain: passwordValidator,
-
+    nickName: notIsEmptyValidator,
 };

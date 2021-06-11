@@ -74,7 +74,7 @@ export default class FormSignUp extends Block<Props> {
             passwordAgain: formData.get('passwordAgain'),
         };
 
-        if (!this.props.form.onValid(form)) return;
+        if (!this.props.form.onValid(form, { key: 'passwordAgain', value: form.password as string})) return;
         console.log(form);
     }
 

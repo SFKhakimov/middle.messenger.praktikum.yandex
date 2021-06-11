@@ -3,10 +3,8 @@ export function emailValidator(value: string) {
         isValid: true,
         errorText: '',
     };
-    if (!value) {
-        result.isValid = false;
-        result.errorText = 'Это поле не может быть пустым';
-        return result;
+    if (!notIsEmptyValidator(value).isValid) {
+        return notIsEmptyValidator(value)
     }
 
     const regExp = /[a-zA-Z-\._]*@[a-zA-Z]*\.[a-zA-Z]*/gi;
@@ -27,10 +25,9 @@ export function loginValidator(value: string) {
         isValid: true,
         errorText: '',
     };
-    if (!value) {
-        result.isValid = false;
-        result.errorText = 'Это поле не может быть пустым';
-        return result;
+
+    if (!notIsEmptyValidator(value).isValid) {
+        return notIsEmptyValidator(value)
     }
 
     result.isValid = true;
@@ -38,21 +35,26 @@ export function loginValidator(value: string) {
     return result;
 }
 
-export function passwordValidator(value: string) {
+export function passwordValidator(pass: string, passAgain?: string) {
     const result = {
         isValid: true,
         errorText: '',
     };
 
-    if (!value) {
+
+    if (!notIsEmptyValidator(pass).isValid) {
+        return notIsEmptyValidator(pass)
+    }
+
+    if (pass.length < 6 || pass.length > 10) {
         result.isValid = false;
-        result.errorText = 'Это поле не может быть пустым';
+        result.errorText = 'Длина пароля может быть от 6 до 10 символов';
         return result;
     }
 
-    if (value.length < 6 || value.length > 10) {
+    if (passAgain && pass !== passAgain) {
         result.isValid = false;
-        result.errorText = 'Длина пароля может быть от 6 до 10 символов';
+        result.errorText = 'Пароль не совпадает';
         return result;
     }
 
@@ -76,4 +78,28 @@ export function notIsEmptyValidator(value: string) {
     result.isValid = true;
     result.errorText = '';
     return result;
+}
+
+export function phoneValidator(value: string) {
+    const result = {
+        isValid: true,
+        errorText: '',
+    };
+    if (!notIsEmptyValidator(value).isValid) {
+        return notIsEmptyValidator(value)
+    }
+
+    const regExp = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/
+
+
+    if (!regExp.test(value)) {
+        result.isValid = false;
+        result.errorText = 'Это поле заполненно некорректно';
+        return result;
+    }
+
+    result.isValid = true;
+    result.errorText = '';
+    return result;
+
 }

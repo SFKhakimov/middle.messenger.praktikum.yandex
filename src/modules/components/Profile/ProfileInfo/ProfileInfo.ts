@@ -1,14 +1,14 @@
 import Block from '../../../../common/components/Block';
+import Modal from '../../../../common/components/Modal';
 import { ProfileInfoFieldContainer } from '../ProfileInfoFieldContainer';
-import { ProfileInfoField } from '../ProfileInfoField';
 import { ProfileInfoEditButton } from '../ProfileInfoEditButton';
 import { ProfileInfoButtonField } from '../ProfileInfoButtonField';
 import { ProfileInfoLogoutButton } from '../ProfileInfoLogoutButton';
 import { ProfileImage } from '../ProfileImage';
-import Modal from '../../../../common/components/Modal';
 import { ProfileImageEditModal } from '../ProfileImageEditModal';
 import { ProfileInfoEditModal } from '../ProfileInfoEditModal';
-import Input from '../../../../common/components/Input';
+import {EDIT_INFO_FIELDS, EDIT_PASSWORD_FIELDS, PROFILE_INFO_FIELDS} from "./contants";
+
 
 import compile from '../../../../common/utils/compile';
 
@@ -26,32 +26,7 @@ export default class ProfileInfo extends Block<Props> {
                 },
             }),
             infoFields: new ProfileInfoFieldContainer({
-                fields: [
-                    new ProfileInfoField({
-                        label: 'Почта',
-                        value: 'test@mail.ru',
-                    }),
-                    new ProfileInfoField({
-                        label: 'Логин',
-                        value: 'test',
-                    }),
-                    new ProfileInfoField({
-                        label: 'Имя',
-                        value: 'Иван',
-                    }),
-                    new ProfileInfoField({
-                        label: 'Фамилия',
-                        value: 'Иванов',
-                    }),
-                    new ProfileInfoField({
-                        label: 'Имя в чате',
-                        value: 'Ivan',
-                    }),
-                    new ProfileInfoField({
-                        label: 'Телефон',
-                        value: '+79999999999',
-                    }),
-                ],
+                fields: PROFILE_INFO_FIELDS,
             }),
             buttons: new ProfileInfoFieldContainer({
                 fields: [
@@ -84,63 +59,67 @@ export default class ProfileInfo extends Block<Props> {
             editProfileModal: new Modal({
                 content: new ProfileInfoEditModal({
                     title: 'Изменение данных',
-                    inputs: [
-                        new Input({
-                            inputName: 'email',
-                            labelName: 'Почтв',
-                            type: 'text',
-                        }),
-                        new Input({
-                            inputName: 'login',
-                            labelName: 'Логин',
-                            type: 'text',
-                        }),
-                        new Input({
-                            inputName: 'firstName',
-                            labelName: 'Имя',
-                            type: 'text',
-                        }),
-                        new Input({
-                            inputName: 'lastName',
-                            labelName: 'Фамилия',
-                            type: 'text',
-                        }),
-                        new Input({
-                            inputName: 'login',
-                            labelName: 'Имя в чате',
-                            type: 'text',
-                        }),
-                        new Input({
-                            inputName: 'phone',
-                            labelName: 'Телефон',
-                            type: 'text',
-                        }),
-                    ],
+                    formName: 'edit-profile',
+                    content: EDIT_INFO_FIELDS,
+                    events: {
+                        submit: (e) => this.onSubmitEditProfile(e)
+                    }
                 }),
             }),
             editPasswordModal: new Modal({
                 content: new ProfileInfoEditModal({
                     title: 'Изменение пароля',
-                    inputs: [
-                        new Input({
-                            inputName: 'oldPassword',
-                            labelName: 'Старый пароль',
-                            type: 'password',
-                        }),
-                        new Input({
-                            inputName: 'newPassword',
-                            labelName: 'Новый пароль',
-                            type: 'password',
-                        }),
-                        new Input({
-                            inputName: 'newPasswordAgain',
-                            labelName: 'Пароль еще раз',
-                            type: 'password',
-                        }),
-                    ],
+                    formName: 'edit-profile-password',
+                    content: EDIT_PASSWORD_FIELDS,
+                    events: {
+                        submit: (e) => this.onSubmitEditPasswordProfile(e)
+                    }
                 }),
             }),
         });
+    }
+
+    onSubmitEditProfile(e: Event) {
+        e.preventDefault();
+
+        const { editProfileModal } = this.props
+        const { content } = editProfileModal.props
+        const { form: formEdit } = content.props
+
+        const formData = new FormData(e.target as HTMLFormElement);
+
+        const form = {
+            email: formData.get('email'),
+            login: formData.get('login'),
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            nickName: formData.get('nickName'),
+            phone: formData.get('phone'),
+        };
+
+        if (!formEdit?.onValid(form)) return;
+        console.log(form);
+        editProfileModal.hide()
+    }
+
+    onSubmitEditPasswordProfile(e: Event) {
+        e.preventDefault();
+
+        const { editPasswordModal } = this.props
+        const { content } = editPasswordModal.props
+        const { form: formEdit } = content.props
+
+        const formData = new FormData(e.target as HTMLFormElement);
+
+        const form = {
+            oldPassword: formData.get('oldPassword'),
+            password: formData.get('password'),
+            passwordAgain: formData.get('passwordAgain'),
+        };
+
+        if (!formEdit?.onValid(form, { key: 'passwordAgain', value: form.password as string})) return;
+        console.log(form);
+        editPasswordModal.hide()
     }
 
     addImageEditModal() {

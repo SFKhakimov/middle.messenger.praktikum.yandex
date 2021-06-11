@@ -19,13 +19,16 @@ export default class Input extends Block<Props> {
         });
     }
 
-    onValid(name: string, value: FormDataEntryValue | null): { isValid: boolean, errorText: string } | void {
+    onValid(name: string, value: FormDataEntryValue | null, againValue?: string): { isValid: boolean, errorText: string } | void {
         if (typeof value !== 'string') return;
+        if (typeof againValue === 'string') {
+            return VALIDATOR[`${name}`]?.(value, againValue);
+        }
         return VALIDATOR[`${name}`]?.(value);
     }
 
-    onUpdate(name: string, value: FormDataEntryValue | null) {
-        const { isValid = true, errorText = '' } = this.onValid(name, value) || {};
+    onUpdate(name: string, value: FormDataEntryValue | null, relatedValue?: string) {
+        const { isValid = true, errorText = '' } = this.onValid(name, value, relatedValue) || {};
 
         this.setProps({
             ...this.props,
