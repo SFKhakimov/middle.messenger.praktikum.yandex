@@ -58,10 +58,10 @@ export default abstract class Block<T extends BlockProps> {
 
   private _componentDidMount() {
     this._addEvents();
-    this.componentDidMount(this.props);
+    this.componentDidMount();
   }
 
-  componentDidMount(props?: T) {
+  componentDidMount() {
     return
   }
 
@@ -74,7 +74,7 @@ export default abstract class Block<T extends BlockProps> {
     }
   }
 
-  componentDidUpdate(oldProps: T, newProps: T) {
+  componentDidUpdate() {
     return
   }
 
@@ -139,7 +139,7 @@ export default abstract class Block<T extends BlockProps> {
             self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
             return true;
         },
-        deleteProperty(target, prop) {
+        deleteProperty() {
             throw new Error('Нет доступа');
         },
     });

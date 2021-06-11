@@ -8,7 +8,7 @@ const compile = (tmpl: string, props: Record<string, any>): HTMLElement => {
         if (props[key] instanceof Block) {
             newProps[key] = `<div data-id-${props[key].getId()}></div>`;
         } else if (Array.isArray(props[key])) {
-            Object.values(props[key]).forEach((item, index) => {
+            Object.values(props[key]).forEach((_, index) => {
                 newProps[key] = [...(newProps[key] ? newProps[key] : []), `<div data-id-${props[key][index].getId()}>2</div>`].join('');
             });
         } else {
@@ -26,7 +26,7 @@ const compile = (tmpl: string, props: Record<string, any>): HTMLElement => {
                 el.parentNode.replaceChild(props[key].getContent(), el);
             }
         } else if (Array.isArray(props[key])) {
-            Object.values(props[key]).forEach((item, index) => {
+            Object.values(props[key]).forEach((_, index) => {
                 const el = element.querySelector(`[data-id-${props[key][index].getId()}]`);
                 if (el?.parentNode) {
                     el.parentNode.replaceChild(props[key][index].getContent(), el);

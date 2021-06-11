@@ -49,7 +49,17 @@ export default class ChatMessageForm extends Block<Props> {
     submit(e: Event) {
         e.preventDefault();
 
-        console.log(e);
+        const formData = new FormData(e.target as HTMLFormElement)
+
+        const form = {
+            message: formData.get('message')
+        }
+
+        const { message} = form
+
+        if (!message || (typeof message === 'string' && !message.trim().length)) return
+
+        console.log(message);
     }
 
     render() {

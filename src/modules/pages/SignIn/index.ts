@@ -1,3 +1,3 @@
 import SignIn from './SignIn';
 
-const signIn = new SignIn();
+new SignIn();
