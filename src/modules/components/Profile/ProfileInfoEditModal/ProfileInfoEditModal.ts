@@ -22,6 +22,7 @@ export default class ProfileInfoEditModal extends Block<Props> {
     }
 
     onSubmit(e: Event) {
+
         this.props.events?.submit!(e)
     }
 
