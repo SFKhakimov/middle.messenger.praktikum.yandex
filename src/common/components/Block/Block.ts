@@ -1,7 +1,7 @@
 import { v4 as makeUUID } from 'uuid'
 import EventBus from '../EventBus'
 import isEqual from '../../utils/mydash/isEqual'
-import {RENDER_DELAY} from "../../constants/delay";
+import {RENDER_DELAY} from "../../constants/delay"
 import { BlockProps } from './types'
 
 export default abstract class Block<T extends BlockProps> {
