@@ -125,18 +125,17 @@ export default abstract class Block<T extends BlockProps> {
   }
 
   private _makePropsProxy(props: T) {
-    const self = this;
     return new Proxy(props, {
         get(target, prop: string) {
             const value = target[prop];
             return typeof value === 'function' ? value.bind(target) : value;
         },
-        set(target, prop: string, value: unknown) {
+        set: (target, prop: string, value: unknown) => {
             const oldTarget = { ...target };
             // TODO разобраться с типизацией
             // @ts-ignore
             target[prop] = value;
-            self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+            this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
             return true;
         },
         deleteProperty() {

@@ -2,12 +2,12 @@ import Block from '../../../../common/components/Block';
 import MenuButton from '../../../../common/components/Buttons/MenuButton';
 import Popper from '../../../../common/components/Popper';
 import PopperButton from '../../../../common/components/Popper/PopperButton';
-import AddUserIcon from '../../../../common/components/Icons/AddUserIcon';
-import DeleteUserIcon from '../../../../common/components/Icons/DeleteUserIcon';
 import Modal from '../../../../common/components/Modal';
 import Form from '../../../../common/components/Form/Form';
 import Input from '../../../../common/components/Input';
-
+import renderComponent from "../../../../common/utils/renderComponent";
+import {deleteUserIconTmpl} from "../../../../common/assets/icons/deleteUserIconTmpl";
+import {addUserIconTmpl} from "../../../../common/assets/icons/addUserIconTmpl";
 import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
@@ -26,14 +26,14 @@ export default class ChatHeaderContainer extends Block<Props> {
                 buttons: [
                     new PopperButton({
                         name: 'Добавить пользователя',
-                        icon: new AddUserIcon(),
+                        icon: renderComponent(addUserIconTmpl),
                         events: {
                             click: () => this.openAddUserModal(),
                         },
                     }),
                     new PopperButton({
                         name: 'Удалить пользователя',
-                        icon: new DeleteUserIcon(),
+                        icon: renderComponent(deleteUserIconTmpl),
                         events: {
                             click: () => this.openRemoveUserModal(),
                         },

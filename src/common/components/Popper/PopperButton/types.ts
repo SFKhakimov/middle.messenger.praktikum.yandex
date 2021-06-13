@@ -1,12 +1,8 @@
-import AddUserIcon from '../../Icons/AddUserIcon';
-import DeleteUserIcon from '../../Icons/DeleteUserIcon';
 import { MyEvents } from '../../../types/Event';
-import AddPhotoIcon from '../../Icons/AddPhotoIcon';
-import AddMessageFileIcon from '../../Icons/AddMessageFileIcon';
-import AddLocation from '../../Icons/AddLocation';
+import Block from "../../Block";
 
 export type Props = {
-  icon: AddUserIcon | DeleteUserIcon | AddPhotoIcon | AddMessageFileIcon | AddLocation
+  icon: Block<{}>
   name: string
   events?: MyEvents
 };

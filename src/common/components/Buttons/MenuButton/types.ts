@@ -1,7 +1,7 @@
-import MenuButtonIcon from '../../Icons/MenuButtonIcon';
 import { MyEvents } from '../../../types/Event';
+import Block from "../../Block";
 
 export type Props = {
-  buttonIcon: MenuButtonIcon
+  buttonIcon: Block<{}>
   events?: MyEvents
 };

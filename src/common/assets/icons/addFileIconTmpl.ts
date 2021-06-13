@@ -1,4 +1,4 @@
-export const template = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const addFileIconTmpl = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.18661 12.5L13.7628 4.92389L14.7056 5.8667L7.12942 13.4428L6.18661 12.5Z" fill="#999999"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.70068 15.0141L16.2768 7.43793L17.2196 8.38074L9.64349 15.9569L8.70068 15.0141Z" fill="#999999"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0433 20.3567L21.6194 12.7806L22.5623 13.7234L14.9861 21.2995L14.0433 20.3567Z" fill="#999999"/>

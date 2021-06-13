@@ -1,10 +1,11 @@
 import Block from '../../../../common/components/Block';
-import AddFileIcon from '../../../../common/components/Icons/AddFileIcon';
 import Popper from '../../../../common/components/Popper';
+import {AddFileButton} from "../../../../common/components/Buttons/AddFileButton";
 import PopperButton from '../../../../common/components/Popper/PopperButton';
-import AddPhotoIcon from '../../../../common/components/Icons/AddPhotoIcon';
-import AddLocation from '../../../../common/components/Icons/AddLocation';
-import AddMessageFileIcon from '../../../../common/components/Icons/AddMessageFileIcon';
+import renderComponent from "../../../../common/utils/renderComponent";
+import {addPhotoIconTmpl} from "../../../../common/assets/icons/addPhotoIconTmpl";
+import {addMessageFileIconTmpl} from "../../../../common/assets/icons/addMessageFileIconTmpl";
+import {addFileLocationTmpl} from "../../../../common/assets/icons/addFileLocationTmpl";
 import compile from '../../../../common/utils/compile';
 
 import { template } from './template';
@@ -14,7 +15,7 @@ import { Props } from './types';
 export default class ChatMessageForm extends Block<Props> {
     constructor() {
         super({
-            icon: new AddFileIcon({
+            addFileButton: new AddFileButton({
                 events: {
                     click: (e) => this.onClick(e),
                 },
@@ -22,15 +23,15 @@ export default class ChatMessageForm extends Block<Props> {
             popper: new Popper({
                 buttons: [
                     new PopperButton({
-                        icon: new AddPhotoIcon(),
+                        icon: renderComponent(addPhotoIconTmpl),
                         name: 'Фото или Видео',
                     }),
                     new PopperButton({
-                        icon: new AddMessageFileIcon(),
+                        icon: renderComponent(addMessageFileIconTmpl),
                         name: 'Файл',
                     }),
                     new PopperButton({
-                        icon: new AddLocation(),
+                        icon: renderComponent(addFileLocationTmpl),
                         name: 'Локация',
                     }),
                 ],
@@ -63,9 +64,9 @@ export default class ChatMessageForm extends Block<Props> {
     }
 
     render() {
-        const { icon, popper } = this.props;
+        const { addFileButton, popper } = this.props;
         return compile(template, {
-            icon, popper,
+            addFileButton, popper,
         });
     }
 }

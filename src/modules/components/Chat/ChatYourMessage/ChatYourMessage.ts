@@ -1,6 +1,7 @@
 import Block from '../../../../common/components/Block';
-import MessageSuccess from '../../../../common/components/Icons/MessageSuccess';
 import compile from '../../../../common/utils/compile';
+import renderComponent from "../../../../common/utils/renderComponent";
+import {messageSuccessTmpl} from "../../../../common/assets/icons/messageSuccessTmpl";
 import { template } from './template';
 import './styles.css';
 import { Props } from './types';
@@ -9,7 +10,7 @@ export default class ChatYourMessage extends Block<Props> {
     constructor(props: Props) {
         super({
             ...props,
-            successIcon: new MessageSuccess(),
+            successIcon: renderComponent(messageSuccessTmpl),
         });
     }
 

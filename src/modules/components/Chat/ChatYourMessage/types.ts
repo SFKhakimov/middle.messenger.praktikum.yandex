@@ -1,7 +1,7 @@
-import MessageSuccess from '../../../../common/components/Icons/MessageSuccess';
+import Block from "../../../../common/components/Block";
 
 export type Props = {
   text: string
   time: string
-  successIcon?: MessageSuccess
+  successIcon?: Block<{}>
 };

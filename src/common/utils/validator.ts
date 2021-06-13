@@ -36,6 +36,9 @@ export function loginValidator(value: string) {
 }
 
 export function passwordValidator(pass: string, passAgain?: string) {
+    const MIN_LENGTH = 6
+    const MAX_LENGTH = 10
+
     const result = {
         isValid: true,
         errorText: '',
@@ -46,7 +49,7 @@ export function passwordValidator(pass: string, passAgain?: string) {
         return notIsEmptyValidator(pass)
     }
 
-    if (pass.length < 6 || pass.length > 10) {
+    if (pass.length < MIN_LENGTH || pass.length > MAX_LENGTH) {
         result.isValid = false;
         result.errorText = 'Длина пароля может быть от 6 до 10 символов';
         return result;
