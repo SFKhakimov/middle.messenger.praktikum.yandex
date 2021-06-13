@@ -1,177 +1,185 @@
 import { v4 as makeUUID } from 'uuid'
 import EventBus from '../EventBus'
 import isEqual from '../../utils/mydash/isEqual'
+import {RENDER_DELAY} from "../../constants/delay";
 import { BlockProps } from './types'
 
 export default abstract class Block<T extends BlockProps> {
-  private static EVENTS = {
-    INIT: 'init',
-    FLOW_CDM: 'flow:component-did-mount',
-    FLOW_CDU: 'flow:component-did-update',
-    FLOW_RENDER: 'flow:render',
-  };
+    private static EVENTS = {
+        INIT: 'init',
+        FLOW_CDM: 'flow:component-did-mount',
+        FLOW_CDU: 'flow:component-did-update',
+        FLOW_RENDER: 'flow:render',
+    };
 
-  private _element: HTMLElement | null;
+    private _element: HTMLElement | null;
 
-  private _meta: Record<string, unknown>;
+    private _meta: Record<string, unknown>;
 
-  props: T;
+    props: T;
 
-  eventBus: () => EventBus;
+    private _timeoutId: undefined | ReturnType<typeof setTimeout>
 
-  private _id: string;
+    eventBus: () => EventBus;
 
-  constructor(props: T, tagName = 'div', selector: string | null = null) {
-    const eventBus = new EventBus()
+    private _id: string;
 
-    this._meta = {
-        tagName,
-        props,
-        selector,
+    constructor(props: T, tagName = 'div', selector: string | null = null) {
+        const eventBus = new EventBus()
+
+        this._meta = {
+            tagName,
+            props,
+            selector,
+        }
+        this._id = makeUUID()
+
+        this.props = this._makePropsProxy({ ...props, _id: this._id })
+
+        this.eventBus = () => eventBus
+
+        this._timeoutId = undefined
+
+        this._registerEvents(eventBus)
+        eventBus.emit(Block.EVENTS.INIT)
     }
-    this._id = makeUUID()
 
-    this.props = this._makePropsProxy({ ...props, _id: this._id })
+    private _registerEvents(eventBus: EventBus) {
+        eventBus.on(Block.EVENTS.INIT, this.init.bind(this))
+        eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this))
+        eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this))
+        eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this))
+    }
 
-    this.eventBus = () => eventBus
+    private _createResources() {
+        const { tagName } = this._meta
+        this._element = this._createDocumentElement(tagName as string)
+    }
 
-    this._registerEvents(eventBus)
-    eventBus.emit(Block.EVENTS.INIT)
-  }
-
-  private _registerEvents(eventBus: EventBus) {
-    eventBus.on(Block.EVENTS.INIT, this.init.bind(this))
-    eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this))
-    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this))
-    eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this))
-  }
-
-  private _createResources() {
-    const { tagName } = this._meta
-    this._element = this._createDocumentElement(tagName as string)
-  }
-
-  init() {
-    this._createResources()
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
-  }
-
-  private _componentDidMount() {
-    this._addEvents()
-    this.componentDidMount()
-  }
-
-  componentDidMount() {
-    return
-  }
-
-  private _componentDidUpdate(oldProps: T, newProps: T) {
-    // TODO разобраться с ререндером,
-    // при изменении нескольких пропсов ререндер происходит несколько раз
-    if (!isEqual(oldProps, newProps)) {
-        this._removeEvents()
+    init() {
+        this._createResources()
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     }
-  }
 
-  componentDidUpdate() {
-    return
-  }
+    private _componentDidMount() {
+        this._addEvents()
+        this.componentDidMount()
+    }
 
-  setProps = (nextProps: Record<string, unknown>) => {
-    if (!nextProps) {
+    componentDidMount() {
         return
     }
 
-    Object.assign(this.props, nextProps)
-  };
+    private _componentDidUpdate(oldProps: T, newProps: T) {
+        if (!isEqual(oldProps, newProps)) {
+            if (this._timeoutId) return
 
-  get element() {
-    return this._element
-  }
-
-  private _render() {
-    const block = this.render()
-    const { selector } = this._meta
-
-    if (selector) {
-        const rootNode = document.querySelector(selector as string)
-        if (rootNode) {
-            rootNode.append(block)
-            this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+            this._timeoutId = setTimeout(() => {
+                this._removeEvents()
+                this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+                clearTimeout(this._timeoutId)
+            }, RENDER_DELAY)
         }
+    }
+
+    componentDidUpdate() {
         return
     }
 
-    if (this._element?.firstChild && block.firstChild) {
-        if (this._element.parentNode) {
-            this._element.parentNode.replaceChild(block, this._element)
-            this._element = block
+    setProps = (nextProps: Record<string, unknown>) => {
+        if (!nextProps) {
+            return
         }
-    } else {
-        this._element = block // TODO проверить нужно ли условие
+
+        Object.assign(this.props, nextProps)
+    };
+
+    get element() {
+        return this._element
     }
-    this._element?.setAttribute('data-id', this._id)
 
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM)
-  }
+    private _render() {
+        const block = this.render()
+        const { selector } = this._meta
 
-  render(): HTMLElement {
-    return this._element as HTMLElement
-  }
+        if (selector) {
+            const rootNode = document.querySelector(selector as string)
+            if (rootNode) {
+                rootNode.append(block)
+                this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+            }
+            return
+        }
 
-  getContent() {
-    return this.element as HTMLElement
-  }
+        if (this._element?.firstChild && block.firstChild) {
+            if (this._element.parentNode) {
+                this._element.parentNode.replaceChild(block, this._element)
+                this._element = block
+            }
+        } else {
+            this._element = block // TODO проверить нужно ли условие
+        }
+        this._element?.setAttribute('data-id', this._id)
 
-  private _makePropsProxy(props: T) {
-    return new Proxy(props, {
-        get(target, prop: string) {
-            const value = target[prop]
-            return typeof value === 'function' ? value.bind(target) : value
-        },
-        set: (target, prop: string, value: unknown) => {
-            const oldTarget = { ...target }
-            // TODO разобраться с типизацией
-            // @ts-ignore
-            target[prop] = value
-            this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target)
-            return true
-        },
-        deleteProperty() {
-            throw new Error('Нет доступа')
-        },
-    })
-  }
+        this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+    }
 
-  private _createDocumentElement(tagName: string) {
-    return document.createElement(tagName)
-  }
+    render(): HTMLElement {
+        return this._element as HTMLElement
+    }
 
-  show(style = 'block') {
-    this.getContent().style.display = style
-  }
+    getContent() {
+        return this.element as HTMLElement
+    }
 
-  hide() {
-    this.getContent().style.display = 'none'
-  }
+    private _makePropsProxy(props: T) {
+        return new Proxy(props, {
+            get(target, prop: string) {
+                const value = target[prop]
+                return typeof value === 'function' ? value.bind(target) : value
+            },
+            set: (target, prop: string, value: unknown) => {
+                const oldTarget = { ...target }
+                // TODO разобраться с типизацией
+                // @ts-ignore
+                target[prop] = value
+                this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target)
+                return true
+            },
+            deleteProperty() {
+                throw new Error('Нет доступа')
+            },
+        })
+    }
 
-  private _addEvents() {
-    const { events = {} } = this.props
-    Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
-        this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void)
-    })
-  }
+    private _createDocumentElement(tagName: string) {
+        return document.createElement(tagName)
+    }
 
-  private _removeEvents() {
-    const { events = {} } = this.props
+    show(style = 'block') {
+        this.getContent().style.display = style
+    }
 
-    Object.keys(events).forEach((eventName: keyof GlobalEventHandlersEventMap) => {
-        this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void)
-    })
-  }
+    hide() {
+        this.getContent().style.display = 'none'
+    }
 
-  getId() {
-    return this._id
-  }
+    private _addEvents() {
+        const { events = {} } = this.props
+        Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
+            this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void)
+        })
+    }
+
+    private _removeEvents() {
+        const { events = {} } = this.props
+
+        Object.keys(events).forEach((eventName: keyof GlobalEventHandlersEventMap) => {
+            this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void)
+        })
+    }
+
+    getId() {
+        return this._id
+    }
 }
