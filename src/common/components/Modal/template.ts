@@ -1,2 +1,2 @@
 export const template = `.modal 
-                            .modal__content !{content}`;
+                            .modal__content !{content}`

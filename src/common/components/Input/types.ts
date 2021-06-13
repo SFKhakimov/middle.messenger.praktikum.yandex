@@ -1,4 +1,4 @@
-import { MyEvents } from '../../types/Event';
+import { MyEvents } from '../../types/Event'
 
 export type Props = {
   labelName: string

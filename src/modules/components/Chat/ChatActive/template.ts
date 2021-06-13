@@ -1,1 +1,1 @@
-export const template = '.chat-active !{messages}';
+export const template = '.chat-active !{messages}'

@@ -1,3 +1,3 @@
-import ChatPage from './Chat';
+import ChatPage from './Chat'
 
-new ChatPage();
+new ChatPage()

@@ -1,10 +1,10 @@
-import Block from "../components/Block";
-import compile from "./compile";
+import Block from "../components/Block"
+import compile from "./compile"
 
 export default function renderComponent (template: string) {
-    return new class extends Block<{}> {
+    return new class extends Block<Record<string, unknown>> {
         constructor() {
-            super({});
+            super({})
         }
 
         render() {

@@ -3,4 +3,4 @@ export const template = `.error
                                 .error__text-container
                                     h6.error__title !{title}
                                     p.error__subtitle !{subtitle}
-                                a.error__button(href=navigatePath) !{navigateText}`;
+                                a.error__button(href=navigatePath) !{navigateText}`

@@ -1,5 +1,5 @@
-import Input from '../Input';
-import {MyEvents} from "../../types/Event";
+import Input from '../Input'
+import {MyEvents} from "../../types/Event"
 
 export type Props = {
   formName: string

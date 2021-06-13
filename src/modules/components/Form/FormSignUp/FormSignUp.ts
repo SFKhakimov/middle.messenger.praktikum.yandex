@@ -1,9 +1,9 @@
-import Block from '../../../../common/components/Block';
-import Input from '../../../../common/components/Input';
-import { Form } from '../../../../common/components/Form';
-import compile from '../../../../common/utils/compile';
-import { template } from './template';
-import { Props } from './types';
+import Block from '../../../../common/components/Block'
+import Input from '../../../../common/components/Input'
+import { Form } from '../../../../common/components/Form'
+import compile from '../../../../common/utils/compile'
+import { template } from './template'
+import { Props } from './types'
 
 export default class FormSignUp extends Block<Props> {
     constructor() {
@@ -57,12 +57,12 @@ export default class FormSignUp extends Block<Props> {
             events: {
                 submit: (e: Event) => this.onSubmit(e),
             },
-        });
+        })
     }
 
     onSubmit(e: Event) {
-        e.preventDefault();
-        const formData = new FormData(e.target as HTMLFormElement);
+        e.preventDefault()
+        const formData = new FormData(e.target as HTMLFormElement)
 
         const form = {
             email: formData.get('email'),
@@ -72,19 +72,19 @@ export default class FormSignUp extends Block<Props> {
             phone: formData.get('phone'),
             password: formData.get('password'),
             passwordAgain: formData.get('passwordAgain'),
-        };
+        }
 
-        if (!this.props.form.onValid(form, { key: 'passwordAgain', value: form.password as string})) return;
-        console.log(form);
+        if (!this.props.form.onValid(form, { key: 'passwordAgain', value: form.password as string})) return
+        console.log(form)
     }
 
     render() {
         const {
             form,
-        } = this.props;
+        } = this.props
 
         return compile(template, {
             form,
-        });
+        })
     }
 }

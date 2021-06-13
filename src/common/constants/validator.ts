@@ -1,7 +1,7 @@
 import {
     emailValidator, loginValidator, notIsEmptyValidator, passwordValidator, phoneValidator,
-} from '../utils/validator';
-import { ValidatorResult } from '../utils/types';
+} from '../utils/validator'
+import { ValidatorResult } from '../utils/types'
 
 export const VALIDATOR: Record<string, (value: string, againValue?: string) => ValidatorResult> = {
     email: emailValidator,
@@ -13,4 +13,4 @@ export const VALIDATOR: Record<string, (value: string, againValue?: string) => V
     password: passwordValidator,
     passwordAgain: passwordValidator,
     nickName: notIsEmptyValidator,
-};
+}

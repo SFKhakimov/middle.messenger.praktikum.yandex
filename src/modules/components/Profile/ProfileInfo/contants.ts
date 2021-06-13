@@ -1,5 +1,5 @@
-import {ProfileInfoField} from "../ProfileInfoField";
-import Input from "../../../../common/components/Input";
+import {ProfileInfoField} from "../ProfileInfoField"
+import Input from "../../../../common/components/Input"
 
 export const PROFILE_INFO_FIELDS = [
     new ProfileInfoField({

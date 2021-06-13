@@ -1,3 +1,3 @@
-import Profile from './Profile';
+import Profile from './Profile'
 
-new Profile();
+new Profile()

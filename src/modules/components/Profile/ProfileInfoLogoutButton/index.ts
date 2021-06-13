@@ -1,1 +1,1 @@
-export { default as ProfileInfoLogoutButton } from './ProfileInfoLogoutButton';
+export { default as ProfileInfoLogoutButton } from './ProfileInfoLogoutButton'

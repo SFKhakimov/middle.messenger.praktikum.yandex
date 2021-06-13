@@ -5,4 +5,4 @@ export const template = `.profile-info
                             | !{buttons}
                             | !{editProfileImageModal}
                             | !{editProfileModal}
-                            | !{editPasswordModal}`;
+                            | !{editPasswordModal}`

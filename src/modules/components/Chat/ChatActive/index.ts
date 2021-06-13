@@ -1,1 +1,1 @@
-export { default as ChatActive } from './ChatActive';
+export { default as ChatActive } from './ChatActive'

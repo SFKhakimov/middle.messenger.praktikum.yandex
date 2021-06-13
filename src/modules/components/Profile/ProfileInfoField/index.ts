@@ -1,1 +1,1 @@
-export { default as ProfileInfoField } from './ProfileInfoField';
+export { default as ProfileInfoField } from './ProfileInfoField'

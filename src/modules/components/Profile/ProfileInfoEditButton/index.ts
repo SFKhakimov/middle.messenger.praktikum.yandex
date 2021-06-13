@@ -1,1 +1,1 @@
-export { default as ProfileInfoEditButton } from './ProfileInfoEditButton';
+export { default as ProfileInfoEditButton } from './ProfileInfoEditButton'

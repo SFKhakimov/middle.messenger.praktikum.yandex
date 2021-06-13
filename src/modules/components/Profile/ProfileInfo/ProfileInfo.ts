@@ -1,20 +1,20 @@
-import Block from '../../../../common/components/Block';
-import Modal from '../../../../common/components/Modal';
-import { ProfileInfoFieldContainer } from '../ProfileInfoFieldContainer';
-import { ProfileInfoEditButton } from '../ProfileInfoEditButton';
-import { ProfileInfoButtonField } from '../ProfileInfoButtonField';
-import { ProfileInfoLogoutButton } from '../ProfileInfoLogoutButton';
-import { ProfileImage } from '../ProfileImage';
-import { ProfileImageEditModal } from '../ProfileImageEditModal';
-import { ProfileInfoEditModal } from '../ProfileInfoEditModal';
-import {EDIT_INFO_FIELDS, EDIT_PASSWORD_FIELDS, PROFILE_INFO_FIELDS} from "./contants";
+import Block from '../../../../common/components/Block'
+import Modal from '../../../../common/components/Modal'
+import { ProfileInfoFieldContainer } from '../ProfileInfoFieldContainer'
+import { ProfileInfoEditButton } from '../ProfileInfoEditButton'
+import { ProfileInfoButtonField } from '../ProfileInfoButtonField'
+import { ProfileInfoLogoutButton } from '../ProfileInfoLogoutButton'
+import { ProfileImage } from '../ProfileImage'
+import { ProfileImageEditModal } from '../ProfileImageEditModal'
+import { ProfileInfoEditModal } from '../ProfileInfoEditModal'
+import {EDIT_INFO_FIELDS, EDIT_PASSWORD_FIELDS, PROFILE_INFO_FIELDS} from "./contants"
 
 
-import compile from '../../../../common/utils/compile';
+import compile from '../../../../common/utils/compile'
 
-import { template } from './template';
-import './styles.css';
-import { Props } from './types';
+import { template } from './template'
+import './styles.css'
+import { Props } from './types'
 
 export default class ProfileInfo extends Block<Props> {
     constructor() {
@@ -76,17 +76,17 @@ export default class ProfileInfo extends Block<Props> {
                     }
                 }),
             }),
-        });
+        })
     }
 
     onSubmitEditProfile(e: Event) {
-        e.preventDefault();
+        e.preventDefault()
 
         const { editProfileModal } = this.props
         const { content } = editProfileModal.props
         const { form: formEdit } = content.props
 
-        const formData = new FormData(e.target as HTMLFormElement);
+        const formData = new FormData(e.target as HTMLFormElement)
 
         const form = {
             email: formData.get('email'),
@@ -95,52 +95,52 @@ export default class ProfileInfo extends Block<Props> {
             lastName: formData.get('lastName'),
             nickName: formData.get('nickName'),
             phone: formData.get('phone'),
-        };
+        }
 
-        if (!formEdit?.onValid(form)) return;
-        console.log(form);
+        if (!formEdit?.onValid(form)) return
+        console.log(form)
         editProfileModal.hide()
     }
 
     onSubmitEditPasswordProfile(e: Event) {
-        e.preventDefault();
+        e.preventDefault()
 
         const { editPasswordModal } = this.props
         const { content } = editPasswordModal.props
         const { form: formEdit } = content.props
 
-        const formData = new FormData(e.target as HTMLFormElement);
+        const formData = new FormData(e.target as HTMLFormElement)
 
         const form = {
             oldPassword: formData.get('oldPassword'),
             password: formData.get('password'),
             passwordAgain: formData.get('passwordAgain'),
-        };
+        }
 
-        if (!formEdit?.onValid(form, { key: 'passwordAgain', value: form.password as string})) return;
-        console.log(form);
+        if (!formEdit?.onValid(form, { key: 'passwordAgain', value: form.password as string})) return
+        console.log(form)
         editPasswordModal.hide()
     }
 
     addImageEditModal() {
-        const { editProfileImageModal } = this.props;
-        editProfileImageModal.show('flex');
+        const { editProfileImageModal } = this.props
+        editProfileImageModal.show('flex')
     }
 
     addEditProfileModal() {
-        const { editProfileModal } = this.props;
-        editProfileModal.show('flex');
+        const { editProfileModal } = this.props
+        editProfileModal.show('flex')
     }
 
     addEditPasswordModal() {
-        const { editPasswordModal } = this.props;
-        editPasswordModal.show('flex');
+        const { editPasswordModal } = this.props
+        editPasswordModal.show('flex')
     }
 
     render() {
         const {
             infoFields, buttons, image, name, editProfileModal, editProfileImageModal, editPasswordModal,
-        } = this.props;
+        } = this.props
         return compile(template, {
             infoFields,
             buttons,
@@ -149,6 +149,6 @@ export default class ProfileInfo extends Block<Props> {
             editProfileModal,
             editProfileImageModal,
             editPasswordModal,
-        });
+        })
     }
 }

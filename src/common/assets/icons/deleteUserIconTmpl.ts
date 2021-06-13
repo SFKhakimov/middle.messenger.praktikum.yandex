@@ -3,4 +3,4 @@ export const deleteUserIconTmpl = `<svg width="22" height="22" viewBox="0 0 22 2
     <line x1="7.11077" y1="7.11103" x2="14.8889" y2="14.8892" stroke="#3369F3" stroke-width="1.5"/>
     <line x1="7.11078" y1="14.8891" x2="14.889" y2="7.11093" stroke="#3369F3" stroke-width="1.5"/>
 </svg>
-`;
+`

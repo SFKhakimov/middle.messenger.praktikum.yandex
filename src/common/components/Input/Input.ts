@@ -1,10 +1,10 @@
-import Block from '../Block';
-import compile from '../../utils/compile';
-import { VALIDATOR } from '../../constants/validator';
-import { template } from './template';
+import Block from '../Block'
+import compile from '../../utils/compile'
+import { VALIDATOR } from '../../constants/validator'
+import { template } from './template'
 
-import './style.css';
-import { Props } from './types';
+import './style.css'
+import { Props } from './types'
 
 export default class Input extends Block<Props> {
     constructor(props: Props) {
@@ -16,37 +16,37 @@ export default class Input extends Block<Props> {
             events: {
                 focusout: (e: FocusEvent) => this.onBlur(e),
             },
-        });
+        })
     }
 
     onValid(name: string, value: FormDataEntryValue | null, againValue?: string): { isValid: boolean, errorText: string } | void {
-        if (typeof value !== 'string') return;
+        if (typeof value !== 'string') return
         if (typeof againValue === 'string') {
-            return VALIDATOR[`${name}`]?.(value, againValue);
+            return VALIDATOR[`${name}`]?.(value, againValue)
         }
-        return VALIDATOR[`${name}`]?.(value);
+        return VALIDATOR[`${name}`]?.(value)
     }
 
     onUpdate(name: string, value: FormDataEntryValue | null, relatedValue?: string) {
-        const { isValid = true, errorText = '' } = this.onValid(name, value, relatedValue) || {};
+        const { isValid = true, errorText = '' } = this.onValid(name, value, relatedValue) || {}
 
         this.setProps({
             ...this.props,
             inputValue: value,
             isValid,
             errorText,
-        });
+        })
     }
 
     onBlur(e: FocusEvent) {
-        const { name, value } = (<HTMLInputElement>e.target);
-        this.onUpdate(name, value);
+        const { name, value } = (<HTMLInputElement>e.target)
+        this.onUpdate(name, value)
     }
 
     render() {
         const {
             labelName, inputName, placeholder, type = 'text', errorText, isValid, inputValue,
-        } = this.props;
+        } = this.props
         const element = compile(template, {
             labelName,
             inputName,
@@ -55,7 +55,7 @@ export default class Input extends Block<Props> {
             errorText,
             isValid,
             inputValue,
-        });
-        return element;
+        })
+        return element
     }
 }

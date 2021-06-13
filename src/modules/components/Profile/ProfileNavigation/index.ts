@@ -1,1 +1,1 @@
-export { default as ProfileNavigation } from './ProfileNavigation';
+export { default as ProfileNavigation } from './ProfileNavigation'

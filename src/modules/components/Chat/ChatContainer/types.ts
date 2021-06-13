@@ -1,5 +1,5 @@
-import { ChatList } from '../ChatListContainer/ChatList/inxex';
-import { Chat } from '../Chat';
+import { ChatList } from '../ChatListContainer/ChatList/inxex'
+import { Chat } from '../Chat'
 
 export type Props = {
   chatList: ChatList,

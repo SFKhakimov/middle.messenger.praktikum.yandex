@@ -1,1 +1,1 @@
-export const template = '.profile-main !{info}';
+export const template = '.profile-main !{info}'

@@ -1,1 +1,1 @@
-export { default as ChatSearchBar } from './ChatSearchBar';
+export { default as ChatSearchBar } from './ChatSearchBar'

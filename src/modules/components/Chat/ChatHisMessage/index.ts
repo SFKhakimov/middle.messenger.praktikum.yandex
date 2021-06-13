@@ -1,1 +1,1 @@
-export { default as ChatHisMessage } from './ChatHisMessage';
+export { default as ChatHisMessage } from './ChatHisMessage'

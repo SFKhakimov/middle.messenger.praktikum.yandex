@@ -1,10 +1,10 @@
-import Block from '../../../../common/components/Block';
-import { Error } from '../../../components/Error';
-import compile from '../../../../common/utils/compile';
+import Block from '../../../../common/components/Block'
+import { Error } from '../../../components/Error'
+import compile from '../../../../common/utils/compile'
 
-import { template } from './template';
-import './styles.css';
-import { Props } from './types';
+import { template } from './template'
+import './styles.css'
+import { Props } from './types'
 
 export default class Error404 extends Block<Props> {
     constructor() {
@@ -15,13 +15,13 @@ export default class Error404 extends Block<Props> {
                 navigateText: 'Назад к чатам',
                 navigatePath: 'index.html',
             }),
-        }, 'div', '#app');
+        }, 'div', '#app')
     }
 
     render() {
-        const { content } = this.props;
+        const { content } = this.props
         return compile(template, {
             content,
-        });
+        })
     }
 }

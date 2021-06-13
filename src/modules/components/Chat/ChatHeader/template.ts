@@ -6,4 +6,4 @@ export const template = `.chat-active-user
                             | !{popper}
                             | !{menuButton}
                             | !{addUserModal}
-                            | !{removeUserModal}`;
+                            | !{removeUserModal}`

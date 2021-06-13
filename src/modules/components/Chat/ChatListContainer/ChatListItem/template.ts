@@ -8,4 +8,4 @@ export const template = `.chat-list-item
                                 .chat-list-item__info-container
                                     p.chat-list-item__message-date !{date}
                                     .chat-list-item__count-container
-                                        p.chat-list-item__count !{countMessage}`;
+                                        p.chat-list-item__count !{countMessage}`

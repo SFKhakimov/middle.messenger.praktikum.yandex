@@ -1,11 +1,11 @@
-import Block from '../../../../common/components/Block';
-import { ChatHisMessage } from '../ChatHisMessage';
-import { ChatYourMessage } from '../ChatYourMessage';
-import compile from '../../../../common/utils/compile';
+import Block from '../../../../common/components/Block'
+import { ChatHisMessage } from '../ChatHisMessage'
+import { ChatYourMessage } from '../ChatYourMessage'
+import compile from '../../../../common/utils/compile'
 
-import { template } from './template';
-import './styles.css';
-import { Props } from './types';
+import { template } from './template'
+import './styles.css'
+import { Props } from './types'
 
 export default class ChatActive extends Block<Props> {
     constructor() {
@@ -24,13 +24,13 @@ export default class ChatActive extends Block<Props> {
                     time: '10:24',
                 }),
             ],
-        });
+        })
     }
 
     render() {
-        const { messages } = this.props;
+        const { messages } = this.props
         return compile(template, {
             messages,
-        });
+        })
     }
 }

@@ -1,10 +1,10 @@
-import Block from '../../../../common/components/Block';
-import {Form} from "../../../../common/components/Form";
-import compile from '../../../../common/utils/compile';
+import Block from '../../../../common/components/Block'
+import {Form} from "../../../../common/components/Form"
+import compile from '../../../../common/utils/compile'
 
-import { template } from './template';
-import './styles.css';
-import { Props } from './types';
+import { template } from './template'
+import './styles.css'
+import { Props } from './types'
 
 export default class ProfileInfoEditModal extends Block<Props> {
     constructor(props: Props) {
@@ -18,7 +18,7 @@ export default class ProfileInfoEditModal extends Block<Props> {
                     submit: (e) => this.onSubmit(e)
                 }
             })
-        });
+        })
     }
 
     onSubmit(e: Event) {
@@ -27,9 +27,9 @@ export default class ProfileInfoEditModal extends Block<Props> {
     }
 
     render() {
-        const { form } = this.props;
+        const { form } = this.props
         return compile(template, {
             form,
-        });
+        })
     }
 }

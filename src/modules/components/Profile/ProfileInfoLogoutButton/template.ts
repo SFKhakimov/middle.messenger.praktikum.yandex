@@ -1,1 +1,1 @@
-export const template = 'button.button.profile-info__logout-button !{title}';
+export const template = 'button.button.profile-info__logout-button !{title}'

@@ -1,1 +1,1 @@
-export const template = 'main.main !{chatContainer}';
+export const template = 'main.main !{chatContainer}'

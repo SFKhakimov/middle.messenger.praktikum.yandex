@@ -11,6 +11,7 @@ module.exports = {
         "no-useless-escape": "off",
         "no-undef": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/no-this-alias": "off"
+        "@typescript-eslint/no-this-alias": "off",
+        "semi": ["error", "never"]
     }
 };

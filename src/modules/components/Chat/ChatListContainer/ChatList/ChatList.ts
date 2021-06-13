@@ -1,11 +1,11 @@
-import Block from '../../../../../common/components/Block';
-import { ChatSearchBar } from '../../ChatSearchBar';
-import { ChatListItem } from '../ChatListItem';
+import Block from '../../../../../common/components/Block'
+import { ChatSearchBar } from '../../ChatSearchBar'
+import { ChatListItem } from '../ChatListItem'
 
-import compile from '../../../../../common/utils/compile';
-import { template } from './template';
-import './style.css';
-import { Props } from './types';
+import compile from '../../../../../common/utils/compile'
+import { template } from './template'
+import './style.css'
+import { Props } from './types'
 
 export default class ChatList extends Block<Props> {
     constructor() {
@@ -25,14 +25,14 @@ export default class ChatList extends Block<Props> {
                     countMessage: 3,
                 }),
             ],
-        });
+        })
     }
 
     render() {
-        const { searchBar, items } = this.props;
+        const { searchBar, items } = this.props
         return compile(template, {
             searchBar,
             items,
-        });
+        })
     }
 }
