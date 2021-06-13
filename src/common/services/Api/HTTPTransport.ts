@@ -31,7 +31,12 @@ export default class HTTPTransport {
             xhr.withCredentials = true
 
             xhr.onload = function () {
-                resolve(xhr)
+                const { status, response } = xhr
+                //TODO как добавим роутинг скорее всего тут буду перенаправлять на страницу 500
+                if (status === 200 || status === 201) {
+                    return resolve(JSON.parse(response))
+                }
+                return reject(JSON.parse(response))
             }
 
             xhr.onabort = reject
