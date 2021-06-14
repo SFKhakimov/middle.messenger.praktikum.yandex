@@ -1,0 +1,33 @@
+.popper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+.popper__content {
+  position: fixed;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+  z-index: 2000;
+}
+
+.popper__button {
+  width: 210px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  justify-content: space-between;
+  padding: 8px 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transition: background-color 0.2s linear;
+}
+
+.popper__button:hover {
+  background: #f0f8ff;
+}
