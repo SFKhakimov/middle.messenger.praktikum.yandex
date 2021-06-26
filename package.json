@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug",
-    "build": "parcel build ./static/*.pug",
+    "start": "parcel -p 3000 ./static/index.pug",
+    "build": "parcel build ./static/index.pug",
     "serve": "parcel -p 3000 ./static/*.pug ./static/templates/*/*.pug && node server.js",
     "eslint": "eslint . --ext .ts,.js",
     "eslint:fix": "eslint . --ext .ts,.js --fix",

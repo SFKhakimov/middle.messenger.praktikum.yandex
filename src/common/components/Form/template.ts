@@ -5,4 +5,4 @@ export const template = `form.form(name=formName)
                             .form__container
                                 button.form__button !{buttonText}
                                 if isRenderLink
-                                    a(href=href).form__link !{linkTitle}`
+                                    .form__link !{buttonLink}`

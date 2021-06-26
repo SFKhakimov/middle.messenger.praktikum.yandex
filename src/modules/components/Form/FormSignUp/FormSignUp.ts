@@ -1,9 +1,13 @@
 import Block from '../../../../common/components/Block'
+import {Router} from "../../../../common/components/Router";
 import Input from '../../../../common/components/Input'
 import { Form } from '../../../../common/components/Form'
 import compile from '../../../../common/utils/compile'
+import {Path} from "../../../../common/constants/router";
+
 import { template } from './template'
 import { Props } from './types'
+import {BaseButton} from "../../../../common/components/Buttons/BaseButton";
 
 export default class FormSignUp extends Block<Props> {
     constructor() {
@@ -14,8 +18,12 @@ export default class FormSignUp extends Block<Props> {
                 title: 'Регистрация',
                 buttonText: 'Зарегистрироваться',
                 isRenderLink: true,
-                href: '/signin.html',
-                linkTitle: 'Уже зарегистрированы?',
+                buttonLink: new BaseButton({
+                    title: 'Уже зарегистрированы?',
+                    events: {
+                        click: () => this.onClick()
+                    }
+                }),
                 content: [
                     new Input({
                         labelName: 'E-mail',
@@ -58,6 +66,7 @@ export default class FormSignUp extends Block<Props> {
                 submit: (e: Event) => this.onSubmit(e),
             },
         })
+        this.route = new Router()
     }
 
     onSubmit(e: Event) {
@@ -75,7 +84,12 @@ export default class FormSignUp extends Block<Props> {
         }
 
         if (!this.props.form.onValid(form, { key: 'passwordAgain', value: form.password as string})) return
+        this.route.go(Path.Chat)
         console.log(form)
+    }
+
+    onClick() {
+        this.route.go(Path.SignIn)
     }
 
     render() {

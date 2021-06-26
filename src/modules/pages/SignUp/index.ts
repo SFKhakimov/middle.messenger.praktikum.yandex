@@ -1,3 +1,1 @@
-import SignUp from './SignUp'
-
-new SignUp()
+export { default as SignUp } from './SignUp'

@@ -12,10 +12,10 @@ export default class Error extends Block<Props> {
 
     render() {
         const {
-            title, subtitle, navigateText, navigatePath,
+            title, subtitle, navigateButton
         } = this.props
         return compile(template, {
-            title, subtitle, navigateText, navigatePath,
+            title, subtitle, navigateButton
         })
     }
 }

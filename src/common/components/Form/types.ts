@@ -1,5 +1,6 @@
 import Input from '../Input'
 import {MyEvents} from "../../types/Event"
+import {BaseButton} from "../Buttons/BaseButton";
 
 export type Props = {
   formName: string
@@ -7,7 +8,6 @@ export type Props = {
   content: Input[]
   buttonText?: string
   isRenderLink?: boolean
-  linkTitle?: string
-  href?: string
+  buttonLink?: BaseButton
   events?: MyEvents
 };

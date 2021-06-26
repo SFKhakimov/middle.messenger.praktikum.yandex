@@ -1,3 +1,1 @@
-import Error500 from './500'
-
-new Error500()
+export { default as Error500 } from './500'

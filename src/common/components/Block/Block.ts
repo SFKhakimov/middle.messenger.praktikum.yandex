@@ -106,6 +106,7 @@ export default abstract class Block<T extends BlockProps> {
             const rootNode = document.querySelector(selector as string)
             if (rootNode) {
                 rootNode.append(block)
+                this._element = block
                 this.eventBus().emit(Block.EVENTS.FLOW_CDM)
             }
             return
@@ -162,6 +163,10 @@ export default abstract class Block<T extends BlockProps> {
 
     hide() {
         this.getContent().style.display = 'none'
+    }
+
+    remove() {
+        this.getContent().remove()
     }
 
     private _addEvents() {

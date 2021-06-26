@@ -1,3 +1,1 @@
-import Error404 from './404'
-
-new Error404()
+export { default as Error404 } from './404'

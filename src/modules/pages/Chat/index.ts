@@ -1,3 +1,1 @@
-import ChatPage from './Chat'
-
-new ChatPage()
+export { default as Chat } from './Chat'
