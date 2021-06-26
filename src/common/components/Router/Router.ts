@@ -1,4 +1,5 @@
 import { Route } from "../Route";
+import {Path} from "../../constants/router";
 
 export default class Router {
     constructor(rootQuery) {
@@ -31,10 +32,10 @@ export default class Router {
     }
 
     _onRoute(pathname) {
-        const route = this.getRoute(pathname)
+        let route = this.getRoute(pathname)
 
         if (!route) {
-            return
+            route = this.getRoute(Path.Error404)
         }
 
         if (this._currentRoute) {
