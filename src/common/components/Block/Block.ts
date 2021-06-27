@@ -78,6 +78,7 @@ export default abstract class Block<T extends BlockProps> {
                 this._removeEvents()
                 this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
                 clearTimeout(this._timeoutId)
+                this._timeoutId = undefined
             }, RENDER_DELAY)
         }
     }
