@@ -13,10 +13,15 @@ import compile from '../../../../common/utils/compile'
 import { template } from './template'
 import './styles.css'
 import { Props } from './types'
+import userController from "../../../../common/services/controllers/user";
+import store from "../../../../common/services/store";
+import get from "../../../../common/utils/mydash/get";
+import {Select} from "../../../../common/components/Select";
 
 export default class ChatHeaderContainer extends Block<Props> {
     constructor() {
         super({
+            store,
             menuButton: new MenuButton({
                 events: {
                     click: (e) => this.onClick(e),
@@ -45,12 +50,13 @@ export default class ChatHeaderContainer extends Block<Props> {
                     formName: 'add-user',
                     title: 'Добавление пользователя',
                     buttonText: 'Добавить',
-                    content: [
-                        new Input({
-                            labelName: 'Логин',
-                            inputName: 'login',
-                        }),
-                    ],
+                    // content: [
+                    //     new Input({
+                    //         labelName: 'Логин',
+                    //         inputName: 'login',
+                    //     }),
+                    // ],
+                    content: [new Select()]
                 }),
             }),
             removeUserModal: new Modal({
@@ -84,15 +90,26 @@ export default class ChatHeaderContainer extends Block<Props> {
         removeUserModal.show('flex')
     }
 
+    componentDidMount() {
+        userController.getUser()
+    }
+
+    componentDidUpdate() {
+        this.setProps({
+            user: get(store.state, 'user', {})
+        })
+    }
+
     render() {
         const {
-            menuButton, popper, addUserModal, removeUserModal,
+            menuButton, popper, addUserModal, removeUserModal, user: { first_name = '' } = {}
         } = this.props
         return compile(template, {
             menuButton,
             popper,
             addUserModal,
             removeUserModal,
+            name: first_name
         })
     }
 }

@@ -8,6 +8,7 @@ import compile from '../../../../common/utils/compile'
 import { Props } from './types'
 import { template } from './template'
 import {BaseButton} from "../../../../common/components/Buttons/BaseButton";
+import {UserController} from "../../../../common/services/controllers/user";
 
 export default class FormSignIn extends Block<Props> {
     constructor() {
@@ -41,6 +42,7 @@ export default class FormSignIn extends Block<Props> {
                 submit: (e: Event) => this.onSubmit(e),
             },
         })
+
         this.route = new Router()
     }
 
@@ -53,8 +55,7 @@ export default class FormSignIn extends Block<Props> {
             password: formData.get('password'),
         }
         if (!this.props.form.onValid(form)) return
-        console.log(form)
-        this.route.go(Path.Chat)
+        new UserController().signIn(form)
     }
 
     onClick() {

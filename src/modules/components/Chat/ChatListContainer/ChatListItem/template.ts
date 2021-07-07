@@ -1,4 +1,5 @@
-export const template = `.chat-list-item
+export const template = `.chat-list-item(class=active)
+                            .chat-list-item__background(data-chat-id=chatId)
                             .chat-list-item__container
                                 .chat-list-item__message-container
                                     .chat-list-item__image
@@ -7,5 +8,6 @@ export const template = `.chat-list-item
                                         p.chat-list-item__message !{message}
                                 .chat-list-item__info-container
                                     p.chat-list-item__message-date !{date}
-                                    .chat-list-item__count-container
-                                        p.chat-list-item__count !{countMessage}`
+                                    if countMessage
+                                        .chat-list-item__count-container
+                                            p.chat-list-item__count !{countMessage}`

@@ -24,14 +24,3 @@
   border-bottom: 1px solid #eaeaea;
   box-sizing: border-box;
 }
-
-.chat-search-bar__input {
-  width: 100%;
-  border-radius: 12px;
-  background: #efefef;
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-  padding: 8px 0;
-  text-align: center;
-}

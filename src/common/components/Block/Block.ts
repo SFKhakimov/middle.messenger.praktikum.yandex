@@ -3,6 +3,7 @@ import EventBus from '../EventBus'
 import isEqual from '../../utils/mydash/isEqual'
 import {RENDER_DELAY} from "../../constants/delay"
 import { BlockProps } from './types'
+import Store from '../../services/store/store'
 
 export default abstract class Block<T extends BlockProps> {
     private static EVENTS = {
@@ -42,6 +43,10 @@ export default abstract class Block<T extends BlockProps> {
 
         this._registerEvents(eventBus)
         eventBus.emit(Block.EVENTS.INIT)
+
+        if (this.props.store instanceof Store) {
+            this.props.store.events.on('stateChange', () => this.componentDidUpdate())
+        }
     }
 
     private _registerEvents(eventBus: EventBus) {
@@ -59,10 +64,10 @@ export default abstract class Block<T extends BlockProps> {
     init() {
         this._createResources()
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+        this.eventBus().emit(Block.EVENTS.FLOW_CDM)
     }
 
     private _componentDidMount() {
-        this._addEvents()
         this.componentDidMount()
     }
 
@@ -108,7 +113,7 @@ export default abstract class Block<T extends BlockProps> {
             if (rootNode) {
                 rootNode.append(block)
                 this._element = block
-                this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+                this._addEvents()
             }
             return
         }
@@ -123,7 +128,7 @@ export default abstract class Block<T extends BlockProps> {
         }
         this._element?.setAttribute('data-id', this._id)
 
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+        this._addEvents()
     }
 
     render(): HTMLElement {

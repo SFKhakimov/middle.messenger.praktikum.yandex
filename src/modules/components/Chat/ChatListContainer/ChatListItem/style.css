@@ -3,6 +3,8 @@
   box-sizing: border-box;
   border-bottom: 1px solid #eaeaea;
   cursor: pointer;
+  position: relative;
+  height: 72px;
 }
 
 .chat-list-item:hover {
@@ -11,6 +13,15 @@
 
 .chat-list-item_active {
   background: #e4edfd;
+}
+
+.chat-list-item__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
 }
 
 .chat-list-item__container {

@@ -1,0 +1,16 @@
+@import "../../../../common/styles/button.css";
+
+.chat-create {
+    border-bottom: 1px solid #eaeaea;
+    padding: 8px;
+}
+
+.chat-create__button {
+    display: flex;
+    justify-content: center;
+    background: #3369f3;
+    padding: 8px 16px;
+    color: #FFF;
+    border-radius: 50px;
+}
+
