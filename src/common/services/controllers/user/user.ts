@@ -3,6 +3,7 @@ import userApi from '../../api/user'
 import store from "../../store"
 import {Router} from "../../../components/Router";
 import {Path} from "../../../constants/router";
+import {SearchUser} from "../../api/user/types";
 
 export default class UserController {
 
@@ -36,8 +37,8 @@ export default class UserController {
     }
 
 
-    getUsers(params) {
-        userApi.getUser(params).then(res => {
+    getUsers(params: SearchUser) {
+        userApi.getUsers(params).then(res => {
             store.dispatch('setUsers', res)
         }).catch(err => console.log(err))
     }

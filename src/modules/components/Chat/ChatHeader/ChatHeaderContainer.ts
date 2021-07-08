@@ -50,12 +50,6 @@ export default class ChatHeaderContainer extends Block<Props> {
                     formName: 'add-user',
                     title: 'Добавление пользователя',
                     buttonText: 'Добавить',
-                    // content: [
-                    //     new Input({
-                    //         labelName: 'Логин',
-                    //         inputName: 'login',
-                    //     }),
-                    // ],
                     content: [new Select()]
                 }),
             }),

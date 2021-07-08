@@ -1,4 +1,5 @@
 import {HTTP} from "../http";
+import {SearchUser} from "./types";
 
 export default class UserApi {
 
@@ -10,7 +11,7 @@ export default class UserApi {
 
 
 
-    getUser(params) {
+    getUsers(params: SearchUser) {
         return HTTP.post(`${this.url}/search`, { data: params }).then(res => res)
     }
 }

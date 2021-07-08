@@ -1,0 +1,48 @@
+@import "../../styles/normalize.css";
+
+.select {
+    width: 100%;
+}
+
+.select__container {
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    padding-top: 16px;
+    height: 220px;
+    overflow-y: scroll;
+}
+
+.select__option {
+    list-style-type: none;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    direction: rtl;
+    justify-content: flex-end;
+}
+
+.select__option_active {
+    background: #f0f8ff;
+}
+
+.select__option:hover {
+    background: #f0f8ff;
+}
+
+.select__checkbox {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.select__label {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
